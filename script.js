@@ -7,6 +7,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const youtubeIframe = document.getElementById('youtube-video');
     const videoSrc = "https://www.youtube.com/embed/w2fBzH71BWw?si=Tw9Qk1XM9v6ydwCa";
 
+    
+    
+    
+    // Loader functionality
+function showLoader() {
+    const loader = document.createElement('div');
+    loader.className = 'page-loader';
+    loader.innerHTML = `
+        <div class="loader-header">Wait for it...</div>
+        <div class="progress"></div>
+    `;
+    document.body.appendChild(loader);
+    return loader;
+}
+
+function initLoader() {
+    const loader = showLoader();
+    
+    setTimeout(() => {
+        loader.classList.add('hidden');
+        setTimeout(() => loader.remove(), 300);
+    }, 2000);
+}
+
+    
+    
+    
+    
+    
     // Function to open video modal
     function openVideoModal() {
         if (youtubeIframe && videoModal) {
