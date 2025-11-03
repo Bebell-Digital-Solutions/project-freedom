@@ -11,28 +11,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // Loader functionality
-function showLoader() {
+    
+    
+  // Create and show loader
+  function showLoader() {
     const loader = document.createElement('div');
     loader.className = 'page-loader';
     loader.innerHTML = `
-        <div class="loader-header">Wait for it...</div>
-        <div class="progress"></div>
+      <div class="loader-header">Wait for it...</div>
+      <div class="progress"></div>
     `;
     document.body.appendChild(loader);
     return loader;
-}
+  }
 
-function initLoader() {
+  // Hide loader after 2 seconds
+  function initLoader() {
     const loader = showLoader();
     
     setTimeout(() => {
-        loader.classList.add('hidden');
-        setTimeout(() => loader.remove(), 300);
-    }, 2000);
-}
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 300); // Remove after fade out
+    }, 2000); // 2 second duration
+  }
 
-    
-    
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', initLoader);
+
+
+
+
     
     
     
