@@ -786,66 +786,78 @@
 
 
 
-/* Loader Styles */
-.page-loader {
+ /* Page loader container with black background */
+  .page-loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     transition: opacity 0.3s ease;
-}
+  }
 
-.page-loader.hidden {
+  /* Added text header */
+  .loader-header {
+    color: white;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Your progress bar - unchanged */
+  .progress {
+    width: 272.8px;
+    height: 41.7px;
+    border-radius: 28.8px;
+    color: #ff5011;
+    background-color: #000;
+    border: 2.9px solid;
+    position: relative;
+  }
+
+  .progress::before {
+    content: "";
+    position: absolute;
+    margin: 2.9px;
+    inset: 0 100% 0 0;
+    border-radius: inherit;
+    background: currentColor;
+    animation: progress-pf82op 1.5s forwards;
+  }
+
+  @keyframes progress-pf82op {
+    100% {
+      inset: 0;
+    }
+  }
+
+  /* Hide transition */
+  .page-loader.hidden {
     opacity: 0;
     pointer-events: none;
-}
-
-.loader-header {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-family: 'Poppins', sans-serif;
-}
-
-.progress {
-    width: 200px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: #ff5011;
-    animation: progressBar 2s ease-in-out forwards;
-}
-
-@keyframes progressBar {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
+  }
 
 
 
 
+
+
+     /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
 
 
