@@ -92,3 +92,79 @@ document.addEventListener('DOMContentLoaded', function() {
     // updateButtonVisibility(); // This function doesn't exist - removed
 });
 
+
+
+
+
+
+
+
+
+// Counter Animation Functionality
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16); // 60fps
+    const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+            element.textContent = target + '+';
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(start) + '+';
+        }
+    }, 16);
+}
+
+// Intersection Observer for counter animation
+function initCounterObserver() {
+    const counterSection = document.getElementById('counter-stats');
+    const statNumbers = document.querySelectorAll('.stat-number');
+    
+    if (!counterSection) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    animateCounter(stat, target);
+                });
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, { 
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    });
+    
+    observer.observe(counterSection);
+}
+
+// Initialize counter when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing loader code...
+    initLoader();
+    
+    // Initialize counter observer
+    initCounterObserver();
+    
+    // Your existing video modal code...
+    // ... rest of your existing JavaScript
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
