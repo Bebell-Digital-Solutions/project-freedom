@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
+document.addEventListener('DOMContentLoaded', function() {
 const d = document;
 const $q = d.querySelectorAll.bind(d);
 const $g = d.querySelector.bind(d);
@@ -316,7 +316,7 @@ $list.addEventListener( "focusin", handleSlideClick );
 $list.addEventListener( "keyup", handleSlideKey );
 
 
-
+});
 
 
 
