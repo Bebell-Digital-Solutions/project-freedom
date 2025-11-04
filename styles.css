@@ -958,7 +958,44 @@
 
 
 
- /* FAQ Section */
+
+
+
+
+
+/* FAQ Section - Fixed */
+#faq {
+    padding: 5rem 0;
+    background-color: var(--body-color);
+}
+
+.section-title {
+    text-align: center;
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: var(--mb3);
+    position: relative;
+}
+
+.section-title[data-heading] {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title[data-heading]::after {
+    content: attr(data-heading);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--box-color);
+    opacity: 0.3;
+    z-index: -1;
+    white-space: nowrap;
+}
+
 #faq .container {
     max-width: 768px !important;
     margin-left: auto !important;
@@ -972,60 +1009,79 @@
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    gap: 1.5rem; /* This creates the gap */
-    width: 100%
+    gap: 1.5rem;
+    width: 100%;
 }
 
-/* Add this to ensure grid layout works properly */
-.faq-container {
-    grid-template-columns: 1fr;
-}
-
+/* FAQ Item Styling */
 .faq-item {
     background-color: var(--box-color);
     border-radius: .5rem;
     padding: 1.25rem;
     box-shadow: 0 2px 8px hsla(var(--hue-color), 14%, 5%, .5);
     width: 100%;
-margin-bottom: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
-/* Rest of your FAQ styles remain the same */
+.faq-item:hover {
+    border-color: var(--skin-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsla(var(--hue-color), 14%, 5%, .7);
+}
+
 .faq-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
     gap: .5rem;
-}
-button.faq-header {
     width: 100%;
     background: transparent;
+    border: none;
     padding: 0;
 }
+
 .faq-question {
     font-size: var(--h3-font-size);
     color: var(--title-color);
     text-align: left;
     width: 100%;
+    margin: 0;
+    font-weight: var(--font-medium);
 }
+
 .faq-icon {
     font-size: 1.5rem;
     color: var(--skin-color);
     transition: transform .3s;
     flex-shrink: 0;
 }
+
 .faq-content {
     overflow: hidden;
     max-height: 0;
     transition: max-height .3s ease-out;
 }
+
 .faq-answer {
     font-size: var(--small-font-size);
     padding-top: 1rem;
     border-top: 1px solid var(--scroll-thumb-color);
     margin-top: 1rem;
     text-align: left;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.faq-answer a {
+    color: var(--skin-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.faq-answer a:hover {
+    text-decoration: underline;
 }
 
 /* Active state for FAQ item */
@@ -1034,17 +1090,30 @@ button.faq-header {
 }
 
 .faq-open .faq-content {
-    max-height: 250px;
+    max-height: 500px;
 }
 
 /* Media queries */
 @media screen and (max-width: 768px) {
+    #faq {
+        padding: 3rem 0;
+    }
+    
+    .section-title[data-heading]::after {
+        font-size: 3rem;
+    }
+    
     #faq .container {
         padding: 0 15px;
     }
+    
     .faq-container {
         max-width: 100%;
         gap: 1rem;
+    }
+    
+    .faq-question {
+        font-size: 1.125rem;
     }
 }
 
@@ -1052,11 +1121,23 @@ button.faq-header {
     #faq .container {
         padding: 0 10px;
     }
+    
     .faq-container {
         gap: 0.75rem;
     }
+    
+    .faq-item {
+        padding: 1rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+    }
+    
+    .section-title[data-heading]::after {
+        font-size: 2.5rem;
+    }
 }
-
 
 
 
