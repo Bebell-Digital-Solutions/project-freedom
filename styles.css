@@ -882,7 +882,74 @@
 
 
 
+/* Counter Stats Section */
+.counter-stats {
+    background-color: var(--mirage-color);
+    padding: 4rem 0;
+    margin-top: 0;
+}
 
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: var(--font-bold);
+    color: var(--skin-color);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: var(--body-font);
+    text-shadow: 0 0 10px rgba(255, 80, 17, 0.3);
+}
+
+.stat-label {
+    font-size: 1.25rem;
+    color: var(--title-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--font-medium);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .counter-stats {
+        padding: 3rem 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .stat-label {
+        font-size: 1.125rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+    }
+}
 
 
 
