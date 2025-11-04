@@ -965,14 +965,14 @@
 
 /* FAQ Section - Fixed */
 
-/* FAQ Section - Fixed */
+/* FAQ Section - COMPLETELY FIXED */
 #faq {
     padding: 5rem 0;
     background-color: var(--body-color);
     width: 100%;
 }
 
-.section-title {
+#faq .section-title {
     text-align: center;
     font-size: var(--h2-font-size);
     color: var(--title-color);
@@ -982,14 +982,14 @@
     display: block;
 }
 
-.section-title[data-heading] {
+#faq .section-title[data-heading] {
     position: relative;
     display: inline-block;
     text-align: center;
     width: auto;
 }
 
-.section-title[data-heading]::after {
+#faq .section-title[data-heading]::after {
     content: attr(data-heading);
     position: absolute;
     top: 50%;
@@ -1008,8 +1008,8 @@
     margin-left: auto !important;
     margin-right: auto !important;
     display: block !important;
-    padding: 0 20px;
-    text-align: center;
+    padding: 0 20px !important;
+    text-align: center !important;
 }
 
 .faq-container {
@@ -1108,12 +1108,12 @@
         padding: 3rem 0;
     }
     
-    .section-title[data-heading]::after {
+    #faq .section-title[data-heading]::after {
         font-size: 3rem;
     }
     
     #faq .container {
-        padding: 0 15px;
+        padding: 0 15px !important;
     }
     
     .faq-container {
@@ -1128,7 +1128,7 @@
 
 @media screen and (max-width: 576px) {
     #faq .container {
-        padding: 0 10px;
+        padding: 0 10px !important;
     }
     
     .faq-container {
@@ -1143,7 +1143,7 @@
         font-size: 1rem;
     }
     
-    .section-title[data-heading]::after {
+    #faq .section-title[data-heading]::after {
         font-size: 2.5rem;
     }
 }
