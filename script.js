@@ -162,23 +162,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // FAQ Accordion
-            const faqHeaders = document.querySelectorAll('.faq-header');
-            faqHeaders.forEach(header => {
-                header.addEventListener('click', () => {
-                    const openItem = document.querySelector('.faq-item.faq-open');
-                    const clickedItem = header.parentElement;
-
-                    if (openItem && openItem !== clickedItem) {
-                        openItem.classList.remove('faq-open');
-                    }
-                    
-                    clickedItem.classList.toggle('faq-open');
-                });
+// FAQ functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        const icon = item.querySelector('.faq-icon');
+        
+        header.addEventListener('click', () => {
+            // Toggle current item
+            const isOpen = item.classList.contains('faq-open');
+            
+            // Close all other FAQ items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('faq-open');
+                }
             });
-
-
-
-
+            
+            // Toggle current item
+            if (!isOpen) {
+                item.classList.add('faq-open');
+            }
+        });
+    });
+});
 
 
 
