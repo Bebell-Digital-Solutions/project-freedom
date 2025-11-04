@@ -958,6 +958,106 @@
 
 
 
+ /* FAQ Section */
+#faq .container {
+    max-width: 768px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    padding: 0 20px;
+}
+
+.faq-container {
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 1.5rem; /* This creates the gap */
+    width: 100%
+}
+
+/* Add this to ensure grid layout works properly */
+.faq-container {
+    grid-template-columns: 1fr;
+}
+
+.faq-item {
+    background-color: var(--box-color);
+    border-radius: .5rem;
+    padding: 1.25rem;
+    box-shadow: 0 2px 8px hsla(var(--hue-color), 14%, 5%, .5);
+    width: 100%;
+margin-bottom: 10px;
+}
+
+/* Rest of your FAQ styles remain the same */
+.faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: .5rem;
+}
+button.faq-header {
+    width: 100%;
+    background: transparent;
+    padding: 0;
+}
+.faq-question {
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    text-align: left;
+    width: 100%;
+}
+.faq-icon {
+    font-size: 1.5rem;
+    color: var(--skin-color);
+    transition: transform .3s;
+    flex-shrink: 0;
+}
+.faq-content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s ease-out;
+}
+.faq-answer {
+    font-size: var(--small-font-size);
+    padding-top: 1rem;
+    border-top: 1px solid var(--scroll-thumb-color);
+    margin-top: 1rem;
+    text-align: left;
+}
+
+/* Active state for FAQ item */
+.faq-open .faq-icon {
+    transform: rotate(45deg);
+}
+
+.faq-open .faq-content {
+    max-height: 250px;
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    #faq .container {
+        padding: 0 15px;
+    }
+    .faq-container {
+        max-width: 100%;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #faq .container {
+        padding: 0 10px;
+    }
+    .faq-container {
+        gap: 0.75rem;
+    }
+}
+
+
 
 
 
