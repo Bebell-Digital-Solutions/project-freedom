@@ -965,11 +965,11 @@
 
 /* FAQ Section - Fixed */
 
-
 /* FAQ Section - Fixed */
 #faq {
     padding: 5rem 0;
     background-color: var(--body-color);
+    width: 100%;
 }
 
 .section-title {
@@ -1009,15 +1009,16 @@
     margin-right: auto !important;
     display: block !important;
     padding: 0 20px;
-    text-align: center; /* This ensures the title stays centered */
+    text-align: center;
 }
 
 .faq-container {
     max-width: 768px;
     margin-left: auto;
     margin-right: auto;
-    display: grid;
-    gap: 1.5rem; /* This creates the space between FAQ items */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* This creates space between FAQ items */
     width: 100%;
 }
 
@@ -1025,19 +1026,17 @@
 .faq-item {
     background-color: var(--box-color);
     border-radius: .5rem;
-    padding: 1.25rem;
+    padding: 1.5rem;
     box-shadow: 0 2px 8px hsla(var(--hue-color), 14%, 5%, .5);
     width: 100%;
     transition: all 0.3s ease;
     border: 1px solid transparent;
-    margin-bottom: 0; /* Remove any manual margin-bottom */
 }
 
 .faq-item:hover {
     border-color: var(--skin-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px hsla(var(--hue-color), 14%, 5%, .7);
-    /* Remove margin-bottom from hover */
 }
 
 .faq-header {
@@ -1045,7 +1044,7 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    gap: .5rem;
+    gap: 1rem;
     width: 100%;
     background: transparent;
     border: none;
@@ -1059,7 +1058,6 @@
     width: 100%;
     margin: 0;
     font-weight: var(--font-medium);
-    /* Remove margin-bottom from here */
 }
 
 .faq-icon {
@@ -1149,8 +1147,6 @@
         font-size: 2.5rem;
     }
 }
-
-
 
 
 
