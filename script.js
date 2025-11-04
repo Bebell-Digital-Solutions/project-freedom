@@ -161,9 +161,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+// FAQ Accordion
+            const faqHeaders = document.querySelectorAll('.faq-header');
+            faqHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const openItem = document.querySelector('.faq-item.faq-open');
+                    const clickedItem = header.parentElement;
+
+                    if (openItem && openItem !== clickedItem) {
+                        openItem.classList.remove('faq-open');
+                    }
+                    
+                    clickedItem.classList.toggle('faq-open');
+                });
+            });
 
 
 
+
+
+
+
+
+
+
+// Back to top
+   window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        var backToTopButton = document.getElementById("back-to-top");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+
+    function scrollToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
 
 
 
