@@ -966,30 +966,28 @@
 /* FAQ Section - Fixed */
 
 
+/* FAQ Section - Fixed */
 #faq {
     padding: 5rem 0;
     background-color: var(--body-color);
 }
 
-
-
 .section-title {
     text-align: center;
-    align-items: center;
     font-size: var(--h2-font-size);
     color: var(--title-color);
     margin-bottom: var(--mb3);
     position: relative;
+    width: 100%;
+    display: block;
 }
-
-
 
 .section-title[data-heading] {
     position: relative;
     display: inline-block;
+    text-align: center;
+    width: auto;
 }
-
-
 
 .section-title[data-heading]::after {
     content: attr(data-heading);
@@ -1005,32 +1003,23 @@
     white-space: nowrap;
 }
 
-
-
-
-
 #faq .container {
     max-width: 768px !important;
     margin-left: auto !important;
     margin-right: auto !important;
     display: block !important;
     padding: 0 20px;
+    text-align: center; /* This ensures the title stays centered */
 }
-
-
-
 
 .faq-container {
     max-width: 768px;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    gap: 1.5rem;
+    gap: 1.5rem; /* This creates the space between FAQ items */
     width: 100%;
 }
-
-
-
 
 /* FAQ Item Styling */
 .faq-item {
@@ -1041,20 +1030,15 @@
     width: 100%;
     transition: all 0.3s ease;
     border: 1px solid transparent;
+    margin-bottom: 0; /* Remove any manual margin-bottom */
 }
-
-
-
 
 .faq-item:hover {
     border-color: var(--skin-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px hsla(var(--hue-color), 14%, 5%, .7);
-    margin-bottom: 20px;
+    /* Remove margin-bottom from hover */
 }
-
-
-
 
 .faq-header {
     display: flex;
@@ -1068,21 +1052,15 @@
     padding: 0;
 }
 
-
-
-
 .faq-question {
     font-size: var(--h3-font-size);
     color: var(--title-color);
     text-align: left;
     width: 100%;
     margin: 0;
-    margin-bottom: 20px;
     font-weight: var(--font-medium);
+    /* Remove margin-bottom from here */
 }
-
-
-
 
 .faq-icon {
     font-size: 1.5rem;
@@ -1091,18 +1069,11 @@
     flex-shrink: 0;
 }
 
-
-
-
 .faq-content {
     overflow: hidden;
     max-height: 0;
     transition: max-height .3s ease-out;
 }
-
-
-
-
 
 .faq-answer {
     font-size: var(--small-font-size);
@@ -1114,38 +1085,24 @@
     line-height: 1.6;
 }
 
-
-
-
 .faq-answer a {
     color: var(--skin-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-
-
-
 .faq-answer a:hover {
     text-decoration: underline;
 }
-
-
-
 
 /* Active state for FAQ item */
 .faq-open .faq-icon {
     transform: rotate(45deg);
 }
 
-
-
 .faq-open .faq-content {
     max-height: 500px;
 }
-
-
-
 
 /* Media queries */
 @media screen and (max-width: 768px) {
@@ -1171,8 +1128,6 @@
     }
 }
 
-
-
 @media screen and (max-width: 576px) {
     #faq .container {
         padding: 0 10px;
@@ -1194,8 +1149,6 @@
         font-size: 2.5rem;
     }
 }
-
-
 
 
 
