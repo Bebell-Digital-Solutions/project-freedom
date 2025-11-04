@@ -162,33 +162,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // FAQ Accordion
-// FAQ functionality
+// FAQ Accordion - Fixed
 document.addEventListener('DOMContentLoaded', function() {
     const faqItems = document.querySelectorAll('.faq-item');
     
     faqItems.forEach(item => {
         const header = item.querySelector('.faq-header');
-        const icon = item.querySelector('.faq-icon');
         
         header.addEventListener('click', () => {
-            // Toggle current item
-            const isOpen = item.classList.contains('faq-open');
-            
             // Close all other FAQ items
             faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
+                if (otherItem !== item && otherItem.classList.contains('faq-open')) {
                     otherItem.classList.remove('faq-open');
                 }
             });
             
             // Toggle current item
-            if (!isOpen) {
-                item.classList.add('faq-open');
-            }
+            item.classList.toggle('faq-open');
         });
     });
 });
-
 
 
 
