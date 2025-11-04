@@ -1,1 +1,596 @@
 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- === PRIMARY META TAGS === -->
+    <title>Project Freedom | Designing Freedom from within.</title>
+    <meta name="description" content="Explore our portfolio of sustainable online business solutions including virtual offices, digital clinics, e-commerce stores, and interactive menus.">
+    <meta name="keywords" content="portfolio, sustainable business, online offices, digital clinics, e-commerce, interactive menus, web development">
+    <meta name="author" content="Bebell Digital Solutions">
+    <meta name="robots" content="index, follow">
+    
+    <!-- === CANONICAL URL === -->
+    <link rel="canonical" href="https://www.project-freedom.club">
+    
+    <!-- === FAVICON & APP ICONS === -->
+    <link rel="icon" type="image/x-icon" href="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png">
+    
+    <!-- === OPEN GRAPH / FACEBOOK === -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.project-freedom.club">
+    <meta property="og:title" content="Project Freedom | Sustainable Online Business Solutions">
+    <meta property="og:description" content="Explore our portfolio of sustainable online business solutions including virtual offices, digital clinics, e-commerce stores, and interactive menus.">
+    <meta property="og:image" content="https://ik.imagekit.io/bebell/Bebell%20Digital%20Solutions/Video%20Banner%20Asset/a075b493-25d1-4489-9fa6-6250e2b56188.jpg?updatedAt=1761927100813">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Project Freedom">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- === TWITTER CARD === -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.project-freedom.club/portfolio">
+    <meta property="twitter:title" content="Project Freedom | Sustainable Online Business Solutions">
+    <meta property="twitter:description" content="Explore our portfolio of sustainable online business solutions including virtual offices, digital clinics, e-commerce stores, and interactive menus.">
+    <meta property="twitter:image" content="https://ik.imagekit.io/bebell/Bebell%20Digital%20Solutions/Video%20Banner%20Asset/a075b493-25d1-4489-9fa6-6250e2b56188.jpg?updatedAt=1761927100813">
+    <meta name="twitter:creator" content="@projectfreedom">
+    
+    <!-- === ADDITIONAL META TAGS === -->
+    <meta name="theme-color" content="#ff5011">
+    <meta name="msapplication-TileColor" content="#ff5011">
+    
+    <!-- === STRUCTURED DATA / SCHEMA.ORG === -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "",
+        "description": "",
+        "url": "https://www.project-freedom.club/home",
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": 4,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Online Offices",
+                    "url": "https://www.project-freedom.club/portfolio/online-offices"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Online Clinics",
+                    "url": "https://www.project-freedom.club/portfolio/online-clinics"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Online Stores",
+                    "url": "https://www.project-freedom.club/portfolio/online-stores"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Online Menus",
+                    "url": "https://www.project-freedom.club/portfolio/online-menus"
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- External CSS Files -->
+    <link href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Turret+Road:wght@200;300;400;500;700;800&display=swap' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://bucket.mlcdn.com/a/3336/3336910/images/1b3c402d665f8293883141de5a7d564769906d78.png">  
+
+
+
+
+
+<script>
+  // Create and show loader
+  function showLoader() {
+    const loader = document.createElement('div');
+    loader.className = 'page-loader';
+    loader.innerHTML = `
+      <div class="loader-header">Wait for it...</div>
+      <div class="progress"></div>
+    `;
+    document.body.appendChild(loader);
+    return loader;
+  }
+
+  // Hide loader after 2 seconds
+  function initLoader() {
+    const loader = showLoader();
+    
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      setTimeout(() => loader.remove(), 300); // Remove after fade out
+    }, 2000); // 2 second duration
+  }
+
+  // Initialize when DOM is ready
+  document.addEventListener('DOMContentLoaded', initLoader);
+</script>
+<!-- CSS LOADER  - PROGRESS BAR WITH TEXT -->
+
+
+
+  
+<!-- MailerLite Universal -->
+    <script>
+    (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+    var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+    f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+    var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+    _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+    var ml_account = ml('accounts', '3336910', 't8p6n6m7b3', 'load');
+    </script>
+    <!-- End MailerLite Universal -->
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="top-menu-bar">
+        <div class="top-menu-content">
+            <a href="#" class="logo-container">
+                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png" alt="Bebell Digital Solutions Logo" class="logo-image">
+                <span class="logo-text">Project Freedom</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#video-banner">About</a>
+                <a href="#benefits">Benefits</a>
+                <a href="#faq">FAQ</a>                
+                <a href="/p/contact">Contact</a> 
+                <a href="/p/portal" class="nav-cta-btn">Join the Movement</a>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop>
+            <source src="https://cdn.shopify.com/videos/c/o/v/05f78c2894fa445bbf838c42217ee3f5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <!-- Logo above title -->
+            <img src="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png" alt="Project Freedom Logo" class="hero-logo">
+            
+            <h1>Project Freedom</h1>
+            <p>Join the Movement</p>
+            <p>Be the first to know when we launch. Subscribe for updates!</p>
+            
+            <!-- MailerLite Form -->
+            <div class="ml-form-container">
+                <div class="ml-form-embed" data-account="3336910:t8p6n6m7b3" data-form="6111260:p7j0q9"></div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+
+
+
+<!-- Counter Stats Section -->
+<section class="counter-stats" id="counter-stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="160">0</div>
+                <div class="stat-label">brands digitalized</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">years of knowledge</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Powerful Resources</div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    
+    
+    
+        <div class="video-container" id="video-banner">
+             <button class="play-video-btn" id="play-video-btn" aria-label="Play Video">
+                <i class="fas fa-play"></i>
+            </button>
+            <video autoplay muted loop playsinline>
+                <source src="https://cdn.shopify.com/videos/c/o/v/2a582084623e462d892da094c19df4dd.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    
+    
+
+    
+    
+    
+<!-- Video Modal -->
+<div class="video-modal" id="video-modal">
+    <div class="video-modal-content">
+        <i class="uil uil-times video-modal-close" id="video-modal-close"></i>
+        <iframe id="youtube-video" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+<section class="faq section" id="faq" style="padding: 5rem 0; background: #000;">
+    <h2 class="section-title" data-heading="Questions" style="text-align: center; width: 100%; display: block; margin-bottom: 2.5rem;">Frequently Asked Questions</h2>
+
+    <div class="faq-container container" style="max-width: 768px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
+        
+        
+        
+        <div class="faq-item" style="margin-bottom: 1rem !important;">
+            <button type="button" class="faq-header">
+                <h3 class="faq-question">What is Project Freedom?</h3>
+                <i class="uil uil-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                <p class="faq-answer">Project Freedom is a movement dedicated to helping entrepreneurs achieve digital independence. We provide the tools, resources, and community support to build sustainable online businesses that create true freedom - both financially and personally.</p>
+            </div>
+        </div>
+
+
+        
+        <div class="faq-item" style="margin-bottom: 1rem !important;">
+            <button type="button" class="faq-header">
+                <h3 class="faq-question">How does Project Freedom help entrepreneurs?</h3>
+                <i class="uil uil-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                <p class="faq-answer">We provide a comprehensive ecosystem including digital architecture, automated systems, brand strategy, and community support. Our approach helps you build a business that works for you, not the other way around - creating true time and financial freedom.</p>
+            </div>
+        </div>
+
+
+        
+        <div class="faq-item" style="margin-bottom: 1rem !important;">
+            <button type="button" class="faq-header">
+                <h3 class="faq-question">What does "Designing Freedom From Within" mean?</h3>
+                <i class="uil uil-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                <p class="faq-answer">It means we focus on building businesses that align with your values, lifestyle, and personal definition of freedom. Instead of following generic business models, we help you design a business from the inside out that truly serves your life goals and personal vision.</p>
+            </div>
+        </div>
+
+
+
+        
+        <div class="faq-item" style="margin-bottom: 1rem !important;">
+            <button type="button" class="faq-header">
+                <h3 class="faq-question">How long does it take to see results?</h3>
+                <i class="uil uil-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                <p class="faq-answer">Results vary based on your starting point and commitment, but most members see significant progress within 3-6 months. Our phased approach ensures you build a solid foundation first, then scale systematically toward your freedom goals.</p>
+            </div>
+        </div>
+
+
+
+        
+
+<div class="faq-item" style="margin-bottom: 1rem !important;">
+            <button type="button" class="faq-header">
+                <h3 class="faq-question">How can I join the Project Freedom movement?</h3>
+                <i class="uil uil-plus faq-icon"></i>
+            </button>
+            <div class="faq-content">
+                <p class="faq-answer">Start by subscribing to our updates above! You'll be the first to know when we officially launch and get access to early-bird opportunities. The movement is growing rapidly - join now to secure your spot and begin your journey to digital freedom.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="carousel">
+    <ul class="carousel__list">
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&h=720&q=80" width="480" height="720" alt="Anthony Lee">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Anthony Lee</h2>
+                    <h3 class="user__title">Archetypal Professor of Recognition</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?fit=crop&h=720&q=80" width="480" height="720" alt="Alicia Chevalier">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Alicia Chevalier</h2>
+                    <h3 class="user__title">Corporate Usability Analyst</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fit=crop&h=720&q=80" width="480" height="720" alt="Nate Boucher">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Nate Boucher</h2>
+                    <h3 class="user__title">Customer Impact Officer</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1614204424926-196a80bf0be8?fit=crop&h=720&q=80" width="480" height="720" alt="Leah Harris">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Leah Harris</h2>
+                    <h3 class="user__title">Designer and Bandit</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0" data-active>
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1536766768598-e09213fdcf22?fit=crop&h=720&q=80" width="480" height="720" alt="Angelina Laurent">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Angelina Laurent</h2>
+                    <h3 class="user__title">Oracle for Inspiration</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?fit=crop&h=720&q=80" width="480" height="720" alt="Gal Gadot">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Gal Gadot</h2>
+                    <h3 class="user__title">Acting Designer and Consultant</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1590086782792-42dd2350140d?fit=crop&h=720&q=80" width="480" height="720" alt="Albert Sørensen">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Albert Sørensen</h2>
+                    <h3 class="user__title">Neural Big Shot of Anticipation</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1553514029-1318c9127859?fit=crop&h=720&q=80" width="480" height="720" alt="Candice Marchand">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Candice Marchand</h2>
+                    <h3 class="user__title">Mindful Realist of Motion Laws</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1596813362035-3edcff0c2487?fit=crop&h=720&q=80" width="480" height="720" alt="Jennifer Salazar">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Jennifer Salazar</h2>
+                    <h3 class="user__title">Design Habitué</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?fit=crop&h=720&q=80" width="480" height="720" alt="Antonin Dufour">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Antonin Dufour</h2>
+                    <h3 class="user__title">Human-Centered Designer</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?fit=crop&h=720&q=80" width="480" height="720" alt="Melissa Simon">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Melissa Simon</h2>
+                    <h3 class="user__title">International Infrastructure Analyst</h3>
+                </div>
+            </div>
+        </li>
+        <li class="carousel__item" tabindex="0">
+            <div class="carousel__box">
+                <div class="carousel__image">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?fit=crop&h=720&q=80" width="480" height="720" alt="Brandon Murray">
+                </div>
+                <div class="carousel__contents">
+                    <h2 class="user__name">Brandon Murray</h2>
+                    <h3 class="user__title">Central Functionality VP</h3>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="carousel__nav">
+        <button class="prev">
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M9.586 4l-6.586 6.586a2 2 0 0 0 0 2.828l6.586 6.586a2 2 0 0 0 2.18 .434l.145 -.068a2 2 0 0 0 1.089 -1.78v-2.586h7a2 2 0 0 0 2 -2v-4l-.005 -.15a2 2 0 0 0 -1.995 -1.85l-7 -.001v-2.585a2 2 0 0 0 -3.414 -1.414z"></path>
+            </svg>
+            <span>prev</span>
+        </button>
+        <button class="next">
+            <span>next</span>
+            <svg width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12.089 3.634a2 2 0 0 0 -1.089 1.78l-.001 2.586h-6.999a2 2 0 0 0 -2 2v4l.005 .15a2 2 0 0 0 1.995 1.85l6.999 -.001l.001 2.587a2 2 0 0 0 3.414 1.414l6.586 -6.586a2 2 0 0 0 0 -2.828l-6.586 -6.586a2 2 0 0 0 -2.18 -.434l-.145 .068z"></path>
+            </svg>
+        </button>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+    
+ <!-- Back to Top Button -->
+
+<!-- Widget Volver arriba -->
+<div id="back-to-top" onclick="scrollToTop()">
+    <img src="https://bucket.mlcdn.com/a/3336/3336910/images/972c5065cffe83955d5322557dcdce28eca170e5.png" alt="Volver arriba" style="width: 40px; height: 40px;">
+</div>
+
+    
+    
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="footer-container container grid">
+                <div class="footer-brand">
+                    <img src="https://bucket.mlcdn.com/a/3336/3336910/images/494966047320c2c5be07bd50754a7183ffcda611.png" alt="Project Freedom Logo" class="footer-logo">
+                    <div class="footer-brand-text">
+                        <h3 class="footer-title">Project Freedom</h3>
+                        <span class="footer-subtitle">Designing Freedom From Within.</span>
+                    </div>
+                </div>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://project-freedom.club" class="footer-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="/p/about" class="footer-link">About</a>
+                    </li>
+                    <li>
+                        <a href="/p/projects" class="footer-link">Work</a>
+                    </li>
+                    <li>
+                        <a href="/p/contact" class="footer-link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/bebelldigitalsolutions" target="_blank" class="footer-social">
+                        <i class="uil uil-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/bebelldigitalsolutions" target="_blank" class="footer-social">
+                        <i class="uil uil-instagram"></i>
+                    </a>
+                    <a href="www.linkedin.com/in/bebell-digital-solutions-9a4b5a239" target="_blank" class="footer-social">
+                        <i class="uil uil-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="footer-copy">Copyright &#169; 2024 • All rights reserved.<br>Developed with 🧡 by <a href="https://bebelldigitalsolutions.com">Bebell Digital Solutions</a></p>
+        </div>
+    </footer>
+    
+    
+    
+  
+    
+
+    
+      <!-- External JavaScript Files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+    <script src="script.js"></script>
+    
+    
+    
+</body>
+</html>
