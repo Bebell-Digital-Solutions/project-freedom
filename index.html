@@ -1952,7 +1952,7 @@
     
 
     <!-- Hero Section with Video Background -->
-    <section class="hero">
+    <section class="hero" tabindex="-1">
         <video class="hero-video" autoplay muted loop>
             <source src="https://cdn.shopify.com/videos/c/o/v/05f78c2894fa445bbf838c42217ee3f5.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -2394,6 +2394,26 @@
 
 
 
+function initHeroFocus() {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.focus();
+    }
+}
+
+// Call on load and after loader
+document.addEventListener('DOMContentLoaded', initHeroFocus);
+setTimeout(initHeroFocus, 2500);
+
+
+
+
+
+        
+
+
+
+
         // Video Modal functionality
         function initVideoModal() {
             const playButton = document.getElementById('play-video-btn');
@@ -2581,7 +2601,7 @@
                 const $slides = $q(".carousel__item");
                 $slides.forEach(el => el.removeAttribute('data-active'));
                 $slide.setAttribute( 'data-active', true );
-                 // Only focus if explicitly requested (for keyboard navigation)
+    // Only focus if explicitly requested (for user interactions)
     if (shouldFocus) {
         $slide.focus();
     }
