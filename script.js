@@ -9,58 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 
-
-
-// Hero Stats Counter Animation
-function animateHeroStats() {
-    const statNumbers = document.querySelectorAll('.hero-stats .stat-number');
-    
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statNumber = entry.target;
-                const targetNumber = parseInt(statNumber.getAttribute('data-count'));
-                let currentNumber = 0;
-                const increment = Math.ceil(targetNumber / 50); // Divide animation into 50 steps
-                const duration = 1500; // 1.5 seconds
-                const stepTime = duration / 50;
-                
-                const counter = setInterval(() => {
-                    currentNumber += increment;
-                    if (currentNumber >= targetNumber) {
-                        statNumber.textContent = targetNumber + '+';
-                        clearInterval(counter);
-                    } else {
-                        statNumber.textContent = currentNumber + '+';
-                    }
-                }, stepTime);
-                
-                observer.unobserve(statNumber);
-            }
-        });
-    }, observerOptions);
-    
-    statNumbers.forEach(stat => observer.observe(stat));
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    animateHeroStats();
-});
-
-
-
-
-
-
-
-
-    
     
     // Loader functionality
     
