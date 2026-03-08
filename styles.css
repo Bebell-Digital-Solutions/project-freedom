@@ -258,10 +258,10 @@
 
         /* Logo above title */
         .hero-logo {
-            width: 70px;
-            height: 70px;
+            width: 100px;
+            height: 100px;
             margin-bottom: var(--mb1);
-            border-radius: 8px;
+            border-radius: 0px;
             object-fit: contain;
         }
 
