@@ -51,65 +51,6 @@
 
 
 
-
-:root {
-    --height: calc( 80vh - 50px );
-    --width: 450px;
-    --hue-color: 242;
-    --skin-color: #ff5011;
-    --mirage-color: hsl(210, 10%, 23%);
-    --title-color: hsl(var(--hue-color), 8%, 95%);
-    --text-color: hsl(var(--hue-color), 8%, 85%);
-    --body-color: #000;
-    --box-color: hsl(var(--hue-color), 14%, 10%);
-    --scroll-box-color: hsl(var(--hue-color), 12%, 38%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 26%);
-    --body-font: 'Poppins', sans-serif;
-    --signature-font: 'Turret', sans-serif;
-    --biggest-font-size: 3rem;
-    --h1-font-size: 3rem;
-    --h2-font-size: 2rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
-    --font-medium: 500;
-    --font-bold: 600;
-    --mb025: .25rem;
-    --mb05: .5rem;
-    --mb075: .75rem;
-    --mb1: 1rem;
-    --mb15: 1.5rem;
-    --mb2: 2rem;
-    --mb25: 2.5rem;
-    --mb3: 3rem;
-    --z-fixed: 10;
-    --z-modal: 1000;
-}
-
-
-
-/* Responsive font sizes */
-@media screen and (max-width: 1024px) {
-    :root {
-        --biggest-font-size: 2rem;
-        --h1-font-size: 3rem;
-        --h2-font-size: 1.25rem;
-        --h3-font-size: 1.125rem;
-        --normal-font-size: .938rem;
-        --small-font-size: .813rem;
-        --smaller-font-size: .75rem;
-    }
-}
-
-
-
-
-
-
-
-
-
         * {
             margin: 0;
             padding: 0;
@@ -563,7 +504,7 @@
         /* MailerLite form container */
         .ml-form-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 980px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
