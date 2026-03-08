@@ -261,8 +261,8 @@ button path {
 }
 
 .logo-container .logo-image {
-    height: 36px;
-    width: 36px;
+    height: 40px;
+    width: 40px;
     object-fit: contain;
     border-radius: 4px;
 }
@@ -561,10 +561,112 @@ button path {
 
 
 
+/*===========================================
+   10. FORM STYLES
+===========================================*/
+.ml-form-container-none {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
 
 
 /*===========================================
-   06. VIDEO MODAL
+   FORM FIXES - Equal padding on button
+===========================================*/
+.ml-form-container {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* Target MailerLite button */
+.ml-form-embed button[type="submit"],
+.ml-form-embed .primary-btn {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    width: auto !important;
+    min-width: 200px !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure form iframe/embed doesn't constrain width */
+.ml-form-embed,
+.ml-form-embed iframe,
+.ml-form-embed .ml-form-embedWrapper {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+}
+
+
+
+.subscribe-form {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--box-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+    margin-bottom: var(--mb1);
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--mb05);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--body-color);
+    border: 2px solid var(--skin-color);
+    border-radius: 0.5rem;
+    color: var(--title-color);
+    font-size: var(--normal-font-size);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 80, 17, 0.3);
+}
+
+.btn-subscribe {
+    width: 100%;
+    padding: 0.75rem 1.75rem;
+    background: linear-gradient(to right, var(--skin-color), #d43a00);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 80, 17, 0.3);
+}
+
+.btn-subscribe:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 80, 17, 0.4);
+}
+
+
+ 
+
+
+/*===========================================
+   07. VIDEO MODAL
 ===========================================*/
 .video-modal {
     position: fixed;
@@ -626,7 +728,7 @@ button path {
 
 
 /*===========================================
-   07. COUNTER STATS SECTION
+   08. COUNTER STATS SECTION
 ===========================================*/
 .counter-stats {
     background-color: hsl(var(--hue-color), 19%, 5%);
@@ -677,7 +779,7 @@ button path {
 
 
 /*===========================================
-   08. FAQ SECTION
+   09. FAQ SECTION
 ===========================================*/
 #faq {
     padding: 5rem 0;
@@ -831,7 +933,7 @@ button path {
 
 
 /*===========================================
-   09. CAROUSEL SECTION
+   10. CAROUSEL SECTION
 ===========================================*/
 .carousel {
     display: grid;
@@ -1007,108 +1109,6 @@ button path {
 
 
 
-
-
-
-/*===========================================
-   10. FORM STYLES
-===========================================*/
-.ml-form-container-none {
-    width: 100%;
-    max-width: 980px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-
-/*===========================================
-   FORM FIXES - Equal padding on button
-===========================================*/
-.ml-form-container {
-    width: 100%;
-    max-width: 980px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-/* Target MailerLite button */
-.ml-form-embed button[type="submit"],
-.ml-form-embed .primary-btn {
-    padding-left: 2rem !important;
-    padding-right: 2rem !important;
-    width: auto !important;
-    min-width: 200px !important;
-    margin: 0 auto !important;
-}
-
-/* Ensure form iframe/embed doesn't constrain width */
-.ml-form-embed,
-.ml-form-embed iframe,
-.ml-form-embed .ml-form-embedWrapper {
-    width: 100% !important;
-    max-width: 980px !important;
-    margin: 0 auto !important;
-}
-
-
-
-.subscribe-form {
-    width: 100%;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: var(--box-color);
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.form-group {
-    margin-bottom: var(--mb1);
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: var(--mb05);
-    color: var(--title-color);
-    font-weight: var(--font-medium);
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    background-color: var(--body-color);
-    border: 2px solid var(--skin-color);
-    border-radius: 0.5rem;
-    color: var(--title-color);
-    font-size: var(--normal-font-size);
-    transition: all 0.3s ease;
-}
-
-.form-control:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 80, 17, 0.3);
-}
-
-.btn-subscribe {
-    width: 100%;
-    padding: 0.75rem 1.75rem;
-    background: linear-gradient(to right, var(--skin-color), #d43a00);
-    color: var(--title-color);
-    font-weight: var(--font-medium);
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 80, 17, 0.3);
-}
-
-.btn-subscribe:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 80, 17, 0.4);
-}
 
 
 
