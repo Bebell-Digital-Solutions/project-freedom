@@ -659,6 +659,7 @@ button path {
     margin: 2.5rem 0 1rem;
     width: 100%;
     max-width: 980px;
+   ursor: pointer;
 }
 
 .stat-card {
@@ -821,6 +822,28 @@ button path {
         font-size: 1.3rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2.5rem 0 1rem;
+    width: 100%;
+    max-width: 980px;
+       cursor: pointer;
+}
+
+
+
 
 
 
