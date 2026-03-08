@@ -102,6 +102,250 @@
 
 
 
+
+<style>
+
+/*===========================================
+   FEATURE STATS SECTION - Independent Styles
+===========================================*/
+.feature-stats-section {
+    padding: 5rem 0;
+    background: linear-gradient(180deg, var(--body-color) 0%, hsl(var(--hue-color), 19%, 5%) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-stats-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.feature-stats-section .section-title {
+    text-align: center;
+    font-size: var(--h2-font-size);
+    color: var(--title-color);
+    margin-bottom: var(--mb3);
+    position: relative;
+}
+
+.feature-stats-section .section-title[data-heading]::after {
+    content: attr(data-heading);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--box-color);
+    opacity: 0.3;
+    z-index: 0;
+    white-space: nowrap;
+}
+
+.feature-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.feature-stat-card {
+    background: linear-gradient(135deg, rgba(255, 80, 17, 0.05) 0%, rgba(255, 122, 51, 0.05) 100%);
+    border: 1px solid rgba(255, 80, 17, 0.15);
+    border-radius: 20px;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.feature-stat-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 80, 17, 0.1), transparent);
+    border-radius: 22px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.feature-stat-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 80, 17, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.feature-stat-card:hover {
+    border-color: var(--skin-color);
+    background: linear-gradient(135deg, rgba(255, 80, 17, 0.1) 0%, rgba(255, 122, 51, 0.1) 100%);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(255, 80, 17, 0.25);
+}
+
+.feature-stat-card:hover::before {
+    opacity: 1;
+}
+
+.feature-stat-card:hover::after {
+    opacity: 1;
+}
+
+.feature-stat-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 80, 17, 0.15), transparent);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.feature-stat-card:hover .feature-stat-glow {
+    left: 100%;
+}
+
+.feature-stat-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 80, 17, 0.15) 0%, rgba(255, 122, 51, 0.15) 100%);
+    border: 2px solid rgba(255, 80, 17, 0.3);
+    border-radius: 18px;
+    color: var(--skin-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-stat-card:hover .feature-stat-icon {
+    background: linear-gradient(135deg, rgba(255, 80, 17, 0.25) 0%, rgba(255, 122, 51, 0.25) 100%);
+    transform: rotate(8deg) scale(1.1);
+    border-color: var(--skin-color);
+    box-shadow: 0 0 20px rgba(255, 80, 17, 0.3);
+}
+
+.feature-stat-content {
+    z-index: 1;
+    position: relative;
+    width: 100%;
+}
+
+.feature-stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--skin-color);
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 15px rgba(255, 80, 17, 0.4);
+    font-family: var(--body-font);
+}
+
+.feature-stat-label {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+    line-height: 1.4;
+}
+
+.feature-stat-card:hover .feature-stat-label {
+    color: var(--title-color);
+}
+
+/* Responsive Breakpoints */
+@media screen and (max-width: 1024px) {
+    .feature-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .feature-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .feature-stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .feature-stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .feature-stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .feature-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .feature-stat-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 1rem 1.5rem;
+    }
+    
+    .feature-stat-icon {
+        margin-right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .feature-stat-number {
+        font-size: 1.6rem;
+        text-align: left;
+    }
+    
+    .feature-stat-label {
+        text-align: left;
+    }
+}
+
+   
+</style>
+
+
+
+    
+
+
+
 <script>
   // Create and show loader
   function showLoader() {
@@ -290,106 +534,131 @@
 
 
 
-<section class="stats-section" id="stats-section">
-        <!-- NEW STATS SECTION BELOW FORM -->
-        <div class="stats-section">
+
+
+
+
+
+
+
+
+
+    
+
+<!-- INDEPENDENT STATS SECTION - Place this wherever you want it -->
+<section class="feature-stats-section" id="feature-stats">
+    <div class="container">
+        <h2 class="section-title" data-heading="Resources">Everything You Get Access To</h2>
+        
+        <div class="feature-stats-grid">
             <!-- Learning Content -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-learning">
+                <div class="feature-stat-icon">
                     <i class="fas fa-book-open"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-label">Learning Modules</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="50">0</div>
+                    <div class="feature-stat-label">Learning Modules</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Execution Templates -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-templates">
+                <div class="feature-stat-icon">
                     <i class="fas fa-file-alt"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="25">0</div>
-                    <div class="stat-label">Templates</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="25">0</div>
+                    <div class="feature-stat-label">Execution Templates</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- AI Prompt Libraries -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-ai">
+                <div class="feature-stat-icon">
                     <i class="fas fa-robot"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="100">0</div>
-                    <div class="stat-label">AI Prompts</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="100">0</div>
+                    <div class="feature-stat-label">AI Prompts</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Automation Workflows -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-automation">
+                <div class="feature-stat-icon">
                     <i class="fas fa-diagram-project"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="15">0</div>
-                    <div class="stat-label">Automations</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="15">0</div>
+                    <div class="feature-stat-label">Automation Workflows</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Digital Business Blueprints -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-blueprints">
+                <div class="feature-stat-icon">
                     <i class="fas fa-cubes"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="12">0</div>
-                    <div class="stat-label">Blueprints</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="12">0</div>
+                    <div class="feature-stat-label">Business Blueprints</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Tool Recommendations -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-tools">
+                <div class="feature-stat-icon">
                     <i class="fas fa-screwdriver-wrench"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="40">0</div>
-                    <div class="stat-label">Curated Tools</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="40">0</div>
+                    <div class="feature-stat-label">Curated Tools</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Accountability -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-accountability">
+                <div class="feature-stat-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="24">0</div>
-                    <div class="stat-label">Weekly Check-ins</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="24">0</div>
+                    <div class="feature-stat-label">Weekly Check-ins</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
 
             <!-- Community Support -->
-            <div class="stat-card">
-                <div class="stat-icon">
+            <div class="feature-stat-card" id="stat-community">
+                <div class="feature-stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <div class="stat-content">
-                    <div class="stat-number" data-count="500">0</div>
-                    <div class="stat-label">Community Members</div>
+                <div class="feature-stat-content">
+                    <div class="feature-stat-number" data-count="500">0</div>
+                    <div class="feature-stat-label">Community Members</div>
                 </div>
-                <div class="stat-glow"></div>
+                <div class="feature-stat-glow"></div>
             </div>
         </div>
+    </div>
 </section>
+
+
+
+
+
+
+
+
+
+    
 
 
 
