@@ -69,6 +69,12 @@
     --z-modal: 1000;
 }
 
+
+
+
+
+
+
 /*===========================================
    02. RESET & BASE STYLES
 ===========================================*/
@@ -255,8 +261,8 @@ button path {
 }
 
 .logo-container .logo-image {
-    height: 32px;
-    width: 32px;
+    height: 36px;
+    width: 36px;
     object-fit: contain;
     border-radius: 4px;
 }
@@ -308,90 +314,86 @@ button path {
 
 
 /*===========================================
-   IMPROVED HERO PARAGRAPH STYLES
+   IMPROVED HERO TEXT STYLES - Add to your CSS
 ===========================================*/
-.hero-description {
-    max-width: 800px;
-    margin: 0 auto 2rem;
-}
-
 .hero-tagline {
     font-size: 1.5rem;
     font-weight: var(--font-medium);
     color: var(--skin-color);
-    margin-bottom: 1.5rem;
-    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
     display: inline-block;
+    text-align: center;
+    width: 100%;
 }
 
-.hero-tagline::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: var(--skin-color);
-}
-
-.hero-text-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.hero-main-text {
+.hero-description {
     font-size: 1.25rem;
     line-height: 1.7;
     color: var(--text-color);
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
     text-align: center;
     font-weight: 300;
-    letter-spacing: 0.3px;
+    opacity: 0.95;
 }
 
-.hero-cta-text {
-    font-size: 1.1rem;
+.hero-cta {
+    font-size: 1.2rem;
     color: var(--title-color);
-    margin-top: 0.5rem;
+    margin-bottom: var(--mb2);
     text-align: center;
+    width: 100%;
 }
 
-.hero-cta-text .highlight {
+.hero-cta .highlight {
     color: var(--skin-color);
     font-weight: var(--font-medium);
     position: relative;
     display: inline-block;
+}
+
+/* Optional: Add a subtle underline effect on highlight hover */
+.hero-cta .highlight:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .hero-tagline {
         font-size: 1.25rem;
+        letter-spacing: 1.5px;
     }
     
-    .hero-main-text {
+    .hero-description {
         font-size: 1.1rem;
         line-height: 1.6;
         padding: 0 1rem;
+        max-width: 100%;
     }
     
-    .hero-cta-text {
-        font-size: 1rem;
+    .hero-cta {
+        font-size: 1.1rem;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .hero-main-text {
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .hero-description {
         font-size: 1rem;
-        padding: 0 0.5rem;
+        padding: 0 0.75rem;
+    }
+    
+    .hero-cta {
+        font-size: 1rem;
     }
 }
-
 
 /*===========================================
    05. HERO SECTION
@@ -431,13 +433,84 @@ button path {
     align-items: center;
 }
 
+
+/*===========================================
+   HERO LOGO HOVER EFFECT - Glow & Expand
+===========================================*/
 .hero-logo {
     width: 100px;
     height: 100px;
     margin-bottom: var(--mb1);
     border-radius: 0px;
     object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy expand effect */
+    position: relative;
+    z-index: 2;
 }
+
+.hero-logo:hover {
+    transform: scale(1.15); /* Expands to 115% */
+    filter: drop-shadow(0 0 15px rgba(255, 80, 17, 0.7))
+            drop-shadow(0 0 30px rgba(255, 80, 17, 0.4))
+            drop-shadow(0 0 45px rgba(255, 80, 17, 0.2));
+    cursor: pointer;
+}
+
+/* Optional: Add a pulsing animation when hover starts */
+.hero-logo:hover {
+    animation: heroLogoGlow 1.5s infinite alternate;
+}
+
+@keyframes heroLogoGlow {
+    0% {
+        filter: drop-shadow(0 0 10px rgba(255, 80, 17, 0.6))
+                drop-shadow(0 0 20px rgba(255, 80, 17, 0.3));
+        transform: scale(1.1);
+    }
+    100% {
+        filter: drop-shadow(0 0 20px rgba(255, 80, 17, 0.9))
+                drop-shadow(0 0 40px rgba(255, 80, 17, 0.5))
+                drop-shadow(0 0 60px rgba(255, 80, 17, 0.3));
+        transform: scale(1.2);
+    }
+}
+
+/* For smoother performance, use will-change */
+.hero-logo {
+    will-change: transform, filter;
+}
+
+/* Optional: Add a subtle background glow ring */
+.hero-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 80, 17, 0.3) 0%, transparent 70%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.hero-logo:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+
+
+
+
+
+
+
+
+
 
 .hero h1 {
     font-size: var(--h1-font-size);
@@ -981,20 +1054,31 @@ button path {
 }
 
 
-/* Fix form container constraints */
+/*===========================================
+   FORM FIXES - Equal padding on button
+===========================================*/
 .ml-form-container {
     width: 100%;
-    max-width: 980px; /* Increased from 980px */
-    margin: 2rem auto 0;
+    max-width: 980px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    padding: 0 1rem;
 }
 
-/* Override any potential MailerLite inline styles */
+/* Target MailerLite button */
+.ml-form-embed button[type="submit"],
+.ml-form-embed .primary-btn {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    width: auto !important;
+    min-width: 200px !important;
+    margin: 0 auto !important;
+}
+
+/* Ensure form iframe/embed doesn't constrain width */
+.ml-form-embed,
 .ml-form-embed iframe,
-.ml-form-embed .ml-form-embedWrapper,
-.ml-form-embed .ml-form-embedBody {
+.ml-form-embed .ml-form-embedWrapper {
     width: 100% !important;
     max-width: 980px !important;
     margin: 0 auto !important;
