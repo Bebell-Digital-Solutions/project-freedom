@@ -758,9 +758,8 @@ button path {
 
 .stat-label {
     color: var(--text-color);
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: color 0.3s ease;
 }
