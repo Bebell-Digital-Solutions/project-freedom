@@ -304,6 +304,7 @@ button path {
     color: var(--title-color);
     background-color: var(--body-color);
     overflow: hidden;
+       cursor: pointer;
 }
 
 .hero-video {
@@ -374,6 +375,7 @@ button path {
     display: flex;
     align-items: center;
     justify-content: center;
+       cursor: pointer;
 }
 
 .video-container video {
@@ -510,6 +512,7 @@ button path {
     padding: 5rem 0;
     background-color: var(--body-color);
     width: 100%;
+   cursor: pointer;
 }
 
 #faq .section-title {
@@ -652,6 +655,7 @@ button path {
     display: grid;
     transform: translate3d(0,0,0.1px);
     font-family: var(--body-font);
+   cursor: pointer;
 }
 
 .carousel__list {
