@@ -662,6 +662,8 @@ button path {
    cursor: pointer;
 }
 
+
+
 .stat-card {
     background: linear-gradient(135deg, rgba(255, 80, 17, 0.05) 0%, rgba(255, 122, 51, 0.05) 100%);
     border: 1px solid rgba(255, 80, 17, 0.15);
@@ -748,6 +750,8 @@ button path {
     position: relative;
 }
 
+
+/* Ensure stat numbers are visible even before animation */
 .stat-number {
     font-size: 1.8rem;
     font-weight: 800;
@@ -755,6 +759,16 @@ button path {
     margin-bottom: 0.2rem;
     line-height: 1.2;
     text-shadow: 0 0 10px rgba(255, 80, 17, 0.3);
+    min-height: 2.5rem; /* Prevents layout shift */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* For the main counter stats section */
+.counter-stats .stat-number {
+    font-size: 4rem;
+    min-height: 5rem;
 }
 
 .stat-label {
