@@ -320,6 +320,7 @@ button path {
     font-size: 1.5rem;
     font-weight: var(--font-medium);
     color: var(--skin-color);
+   margin-top: 1rem;
     margin-bottom: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
