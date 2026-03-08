@@ -752,12 +752,17 @@
 
 <script>
 
-// Hero Stats Counter Animation
+// Hero Stats Counter Animation - FIXED VERSION
 function animateHeroStats() {
     const statNumbers = document.querySelectorAll('.hero-stats .stat-number');
     
+    if (statNumbers.length === 0) {
+        console.log('No stat numbers found');
+        return;
+    }
+    
     const observerOptions = {
-        threshold: 0.5,
+        threshold: 0.3,
         rootMargin: '0px'
     };
     
@@ -765,19 +770,37 @@ function animateHeroStats() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const statNumber = entry.target;
-                const targetNumber = parseInt(statNumber.getAttribute('data-count'));
-                let currentNumber = 0;
-                const increment = Math.ceil(targetNumber / 50); // Divide animation into 50 steps
-                const duration = 1500; // 1.5 seconds
-                const stepTime = duration / 50;
                 
-                const counter = setInterval(() => {
+                // Get the target number from data-count attribute
+                const targetNumber = parseInt(statNumber.getAttribute('data-count'));
+                
+                // Check if targetNumber is valid
+                if (isNaN(targetNumber)) {
+                    console.error('Invalid data-count value:', statNumber.getAttribute('data-count'));
+                    statNumber.textContent = '0+';
+                    return;
+                }
+                
+                let currentNumber = 0;
+                const steps = 50; // Number of steps for the animation
+                const increment = targetNumber / steps;
+                const duration = 1500; // 1.5 seconds
+                const stepTime = duration / steps;
+                
+                // Clear any existing interval
+                if (statNumber.interval) {
+                    clearInterval(statNumber.interval);
+                }
+                
+                statNumber.interval = setInterval(() => {
                     currentNumber += increment;
+                    
                     if (currentNumber >= targetNumber) {
                         statNumber.textContent = targetNumber + '+';
-                        clearInterval(counter);
+                        clearInterval(statNumber.interval);
+                        statNumber.interval = null;
                     } else {
-                        statNumber.textContent = currentNumber + '+';
+                        statNumber.textContent = Math.floor(currentNumber) + '+';
                     }
                 }, stepTime);
                 
@@ -789,13 +812,72 @@ function animateHeroStats() {
     statNumbers.forEach(stat => observer.observe(stat));
 }
 
-// Initialize when DOM is loaded
+// Also fix the existing counter stats section if it's having issues
+function animateMainStats() {
+    const mainStatNumbers = document.querySelectorAll('.counter-stats .stat-number');
+    
+    if (mainStatNumbers.length === 0) return;
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumber = entry.target;
+                const targetNumber = parseInt(statNumber.getAttribute('data-target'));
+                
+                if (isNaN(targetNumber)) {
+                    console.error('Invalid data-target value:', statNumber.getAttribute('data-target'));
+                    return;
+                }
+                
+                let currentNumber = 0;
+                const steps = 50;
+                const increment = targetNumber / steps;
+                const duration = 1500;
+                const stepTime = duration / steps;
+                
+                if (statNumber.interval) {
+                    clearInterval(statNumber.interval);
+                }
+                
+                statNumber.interval = setInterval(() => {
+                    currentNumber += increment;
+                    
+                    if (currentNumber >= targetNumber) {
+                        statNumber.textContent = targetNumber + '+';
+                        clearInterval(statNumber.interval);
+                        statNumber.interval = null;
+                    } else {
+                        statNumber.textContent = Math.floor(currentNumber) + '+';
+                    }
+                }, stepTime);
+                
+                observer.unobserve(statNumber);
+            }
+        });
+    }, observerOptions);
+    
+    mainStatNumbers.forEach(stat => observer.observe(stat));
+}
+
+// Initialize when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    animateHeroStats();
+    // Small delay to ensure everything is loaded
+    setTimeout(() => {
+        animateHeroStats();
+        animateMainStats();
+    }, 100);
 });
 
-
-    
+// Also run after window load for any dynamically loaded content
+window.addEventListener('load', () => {
+    animateHeroStats();
+    animateMainStats();
+});
 </script>
 
 
