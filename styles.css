@@ -441,42 +441,18 @@ button path {
     width: 100px;
     height: 100px;
     margin-bottom: var(--mb1);
-    border-radius: 50%; /* Makes it circular if you want circular glow */
+    border-radius: 0px;
     object-fit: contain;
     transition: all 0.4s ease;
     position: relative;
     z-index: 2;
-    box-shadow: 0 0 0 0 rgba(255, 80, 17, 0);
 }
 
 .hero-logo:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px var(--skin-color),
-                0 0 40px rgba(255, 80, 17, 0.4),
-                0 0 60px rgba(255, 80, 17, 0.2);
+    transform: scale(1.05); /* Very subtle expansion */
+    filter: drop-shadow(0 0 8px rgba(255, 80, 17, 0.3));
+    cursor: pointer;
 }
-
-/* Add a spinning border effect */
-.hero-logo:hover {
-    animation: borderPulse 1.5s infinite;
-}
-
-@keyframes borderPulse {
-    0% {
-        box-shadow: 0 0 20px var(--skin-color),
-                    0 0 40px rgba(255, 80, 17, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 30px var(--skin-color),
-                    0 0 60px rgba(255, 80, 17, 0.6),
-                    0 0 90px rgba(255, 80, 17, 0.3);
-    }
-    100% {
-        box-shadow: 0 0 20px var(--skin-color),
-                    0 0 40px rgba(255, 80, 17, 0.4);
-    }
-}
-
 
 
 
