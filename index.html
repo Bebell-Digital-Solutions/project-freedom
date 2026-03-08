@@ -1134,7 +1134,76 @@ window.addEventListener('load', () => {
 
 
 
+<script>
 
+// Independent counter for Feature Stats Section
+function initFeatureStatsCounter() {
+    const featureStats = document.querySelectorAll('.feature-stat-number');
+    
+    if (featureStats.length === 0) return;
+    
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '50px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statElement = entry.target;
+                const targetValue = parseInt(statElement.getAttribute('data-count'));
+                
+                // Validate the target value
+                if (isNaN(targetValue)) {
+                    console.warn('Invalid data-count value for feature stat');
+                    statElement.textContent = '0+';
+                    return;
+                }
+                
+                let currentValue = 0;
+                const duration = 2000; // 2 seconds
+                const steps = 60;
+                const increment = targetValue / steps;
+                const stepTime = duration / steps;
+                
+                // Clear any existing interval
+                if (statElement.interval) {
+                    clearInterval(statElement.interval);
+                }
+                
+                statElement.interval = setInterval(() => {
+                    currentValue += increment;
+                    
+                    if (currentValue >= targetValue) {
+                        statElement.textContent = targetValue + '+';
+                        clearInterval(statElement.interval);
+                        statElement.interval = null;
+                    } else {
+                        statElement.textContent = Math.floor(currentValue) + '+';
+                    }
+                }, stepTime);
+                
+                observer.unobserve(statElement);
+            }
+        });
+    }, observerOptions);
+    
+    featureStats.forEach(stat => observer.observe(stat));
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Small delay to ensure everything is loaded
+    setTimeout(initFeatureStatsCounter, 200);
+});
+
+// Also initialize if the section is added dynamically
+window.addEventListener('load', initFeatureStatsCounter);
+
+
+
+    
+</script>
 
     
     
