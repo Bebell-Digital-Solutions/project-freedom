@@ -138,6 +138,11 @@ button path {
     fill: currentColor;
 }
 
+
+
+
+
+
 /*===========================================
    03. UTILITIES & ANIMATIONS
 ===========================================*/
@@ -211,6 +216,12 @@ button path {
         opacity: 0;
     }
 }
+
+
+
+
+
+
 
 /*===========================================
    04. TOP MENU BAR
@@ -290,6 +301,97 @@ button path {
     box-shadow: 0 6px 15px rgba(255, 80, 17, 0.3);
     color: #fff;
 }
+
+
+
+
+
+
+/*===========================================
+   IMPROVED HERO PARAGRAPH STYLES
+===========================================*/
+.hero-description {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+.hero-tagline {
+    font-size: 1.5rem;
+    font-weight: var(--font-medium);
+    color: var(--skin-color);
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-tagline::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--skin-color);
+}
+
+.hero-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.hero-main-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.hero-cta-text {
+    font-size: 1.1rem;
+    color: var(--title-color);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.hero-cta-text .highlight {
+    color: var(--skin-color);
+    font-weight: var(--font-medium);
+    position: relative;
+    display: inline-block;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .hero-tagline {
+        font-size: 1.25rem;
+    }
+    
+    .hero-main-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+    
+    .hero-cta-text {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-main-text {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+}
+
 
 /*===========================================
    05. HERO SECTION
@@ -412,6 +514,14 @@ button path {
     margin-left: 3px;
 }
 
+
+
+
+
+
+
+
+
 /*===========================================
    06. VIDEO MODAL
 ===========================================*/
@@ -464,6 +574,16 @@ button path {
     transform: scale(1.1);
 }
 
+
+
+
+
+
+
+
+
+
+
 /*===========================================
    07. COUNTER STATS SECTION
 ===========================================*/
@@ -504,6 +624,16 @@ button path {
     letter-spacing: 1px;
     font-weight: var(--font-medium);
 }
+
+
+
+
+
+
+
+
+
+
 
 /*===========================================
    08. FAQ SECTION
@@ -647,6 +777,17 @@ button path {
 .faq-open .faq-content {
     max-height: 500px;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 /*===========================================
    09. CAROUSEL SECTION
@@ -815,16 +956,51 @@ button path {
     gap: 1em;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*===========================================
    10. FORM STYLES
 ===========================================*/
-.ml-form-container {
+.ml-form-container-none {
     width: 100%;
     max-width: 980px;
     margin: 0 auto;
     display: flex;
     justify-content: center;
 }
+
+
+/* Fix form container constraints */
+.ml-form-container {
+    width: 100%;
+    max-width: 980px; /* Increased from 980px */
+    margin: 2rem auto 0;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+/* Override any potential MailerLite inline styles */
+.ml-form-embed iframe,
+.ml-form-embed .ml-form-embedWrapper,
+.ml-form-embed .ml-form-embedBody {
+    width: 100% !important;
+    max-width: 980px !important;
+    margin: 0 auto !important;
+}
+
+
 
 .subscribe-form {
     width: 100%;
@@ -881,6 +1057,15 @@ button path {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 80, 17, 0.4);
 }
+
+
+
+
+
+
+
+
+
 
 /*===========================================
    11. FOOTER
@@ -974,6 +1159,16 @@ button path {
     color: var(--skin-color);
 }
 
+
+
+
+
+
+
+
+
+
+
 /*===========================================
    12. PAGE LOADER
 ===========================================*/
@@ -1025,6 +1220,13 @@ button path {
     pointer-events: none;
 }
 
+
+
+
+
+
+
+
 /*===========================================
    13. BACK TO TOP BUTTON
 ===========================================*/
@@ -1036,6 +1238,12 @@ button path {
     cursor: pointer;
     z-index: 1000;
 }
+
+
+
+
+
+
 
 /*===========================================
    14. SCROLLBAR STYLES
@@ -1064,6 +1272,15 @@ button path {
     scrollbar-width: thin;
     scrollbar-color: var(--skin-color) var(--box-color);
 }
+
+
+
+
+
+
+
+
+
 
 /*===========================================
    15. RESPONSIVE BREAKPOINTS
