@@ -230,6 +230,14 @@
         .nav-cta.mobile-cta-only { display: none; }
         .nav-cta.desktop-cta-only { display: block; }
 
+
+
+
+
+
+
+		
+
         /* =========================== */
         /* SECTION 5: BACK TO TOP BUTTON */
         /* =========================== */
@@ -256,6 +264,12 @@
         #back-to-top:hover { 
             transform: scale(1.1); 
         }
+
+
+
+
+
+		
 
         /* =========================== */
         /* SECTION 6: FOOTER STYLES */
@@ -721,16 +735,43 @@
             }
         }
 
-        /* images for left and right hand with pill */
-        .col-left {
-            background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/d78278dbc233849a4d73a3080184f250c3adb354.png');
-            animation-delay: 0.1s;
-        }
+/* images for left and right hand with pill */
+.col-left {
+    background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/d78278dbc233849a4d73a3080184f250c3adb354.png');
+    animation-delay: 0.1s;
+}
 
-        .col-right {
-            background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/528bbf719e13badbcf0ca310a2bbc65a874468e9.png');
-            animation-delay: 0.2s;
-        }
+.col-right {
+    background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/528bbf719e13badbcf0ca310a2bbc65a874468e9.png');
+    animation-delay: 0.2s;
+    position: relative; /* Add this */
+    z-index: 1; /* Add this */
+}
+
+/* Orange glow for right column - ADD THIS AFTER */
+.col-right::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    background: radial-gradient(circle at center, var(--skin-color) 0%, rgba(255, 80, 17, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.col-right:hover::before {
+    opacity: 0.6; /* Adjust this value for intensity (0-1) */
+}
+
+@keyframes fadeInImage {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
 
         @keyframes fadeInImage {
             0% { opacity: 0; }
