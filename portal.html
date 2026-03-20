@@ -734,40 +734,7 @@
 .col-right {
     background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/528bbf719e13badbcf0ca310a2bbc65a874468e9.png');
     animation-delay: 0.2s;
-    position: relative; /* Add this */
-    z-index: 1; /* Add this */
 }
-
-/* ADD THIS ENTIRE BLOCK AFTER .col-right */
-/* Orange glow for right column - dim and behind the image */
-.col-right::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    right: -20px;
-    bottom: -20px;
-    background: radial-gradient(circle at center, 
-                                rgba(255, 80, 17, 0.25) 0%, 
-                                rgba(255, 80, 17, 0.1) 40%, 
-                                rgba(255, 80, 17, 0) 70%);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: -1; /* This keeps it behind the image */
-    pointer-events: none;
-    filter: blur(8px);
-}
-
-.col-right:hover::before {
-    opacity: 0.7;
-}
-
-@keyframes fadeInImage {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
 
 
         /* hover effect */
