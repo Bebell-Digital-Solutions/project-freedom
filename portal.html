@@ -6,9 +6,14 @@
     <!-- =========================== -->
     <!-- SECTION 1: PAGE TITLE & META -->
     <!-- =========================== -->
-    <title>Project Freedom | Choose Your Path </title>
+    <title>Choose Your Path - Project Freedom</title>
     <meta name="description" content="Choose your path with Project Freedom.">
     
+ 
+
+<!-- Three.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     
     <!-- =========================== -->
     <!-- SECTION 2: FONTS & ICONS -->
@@ -19,10 +24,8 @@
     <!-- Icons (Font Awesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    
     <!-- Favicon -->
-    <link rel="icon" href="https://bucket.mlcdn.com/a/3336/3336910/images/382c8eeb57b161dfa3bdb3e38863ec268f76c889.png">
-
+    <link rel="icon" href="https://bucket.mlcdn.com/a/3336/3336910/images/c6f729e3f2ce7e2bc59bf6037f6fe0f491d94819.png">
 
     <!-- =========================== -->
     <!-- SECTION 3: BASE CSS STYLES -->
@@ -220,14 +223,6 @@
         .nav-cta.mobile-cta-only { display: none; }
         .nav-cta.desktop-cta-only { display: block; }
 
-
-
-
-
-
-
-		
-
         /* =========================== */
         /* SECTION 5: BACK TO TOP BUTTON */
         /* =========================== */
@@ -254,12 +249,6 @@
         #back-to-top:hover { 
             transform: scale(1.1); 
         }
-
-
-
-
-
-		
 
         /* =========================== */
         /* SECTION 6: FOOTER STYLES */
@@ -725,17 +714,21 @@
             }
         }
 
-/* images for left and right hand with pill */
-.col-left {
-    background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/d78278dbc233849a4d73a3080184f250c3adb354.png');
-    animation-delay: 0.1s;
-}
+        /* images for left and right hand with pill */
+        .col-left {
+            background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/d78278dbc233849a4d73a3080184f250c3adb354.png');
+            animation-delay: 0.1s;
+        }
 
-.col-right {
-    background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/528bbf719e13badbcf0ca310a2bbc65a874468e9.png');
-    animation-delay: 0.2s;
-}
+        .col-right {
+            background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/528bbf719e13badbcf0ca310a2bbc65a874468e9.png');
+            animation-delay: 0.2s;
+        }
 
+        @keyframes fadeInImage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
 
         /* hover effect */
         @media (hover: hover) {
@@ -927,6 +920,11 @@
         
         
         
+        
+        
+        
+        
+        
   /* Add these styles to your CSS file */
 .dark-overlay {
     position: fixed;
@@ -981,7 +979,18 @@
 }      
         
         
-      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     </style>
 
@@ -1054,30 +1063,38 @@
             </div>            
             
             
-       
+            
+            
+            
+            
+            
+            
             <a href="/contact" class="nav-link">Contact</a>
             
-  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             <!-- DESKTOP CTA -->
-            <a href="/login" class="nav-cta desktop-cta-only">MEMBER LOGIN</a>
+            <a href="/login" class="nav-cta desktop-cta-only">Choose Your Path</a>
             
             <!-- MOBILE CTA -->
-            <a href="/login" class="nav-cta mobile-cta-only">MEMBER LOGIN</a>
+            <a href="/login" class="nav-cta mobile-cta-only">Choose Your Path</a>
         </div>
         
     </nav>
-
-
-
-
-	
 
     <!-- =========================== -->
     <!-- SECTION 13: MAIN CONTENT AREA -->
     <!-- =========================== -->
     <main>
-
-		
         <div class="page">
             <div class="title-section">
                 <h1>Choose Your Path</h1>
@@ -1100,7 +1117,13 @@
         </div>
 
     </main>
-      
+    
+    
+    
+    
+    
+    
+    
 
     <!-- =========================== -->
     <!-- SECTION 15: BACK TO TOP BUTTON -->
@@ -1158,6 +1181,8 @@
 
 
 
+   
+    
 <!-- Add this before closing body tag -->
 <!-- Tunnel Canvas -->
 <canvas id="tunnelCanvas" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999;"></canvas>
@@ -1165,12 +1190,6 @@
 <!-- Hidden Portal Card (optional - can be removed if not needed) -->
 <div id="portalCard" style="display: none;"></div>
 
-<!-- Three.js Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-
-
-	
 
 
     <!-- =========================== -->
@@ -1548,6 +1567,12 @@ window.addEventListener('beforeunload', function() {
 });
     </script>
     
-  
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>
