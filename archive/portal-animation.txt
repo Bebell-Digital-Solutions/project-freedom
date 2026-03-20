@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Required Resources -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <style>
+        /* Animation CSS - Copy from the style section below */
+    </style>
+</head>
+<body>
+    <!-- Trigger Button -->
+    <button id="portalButton" class="portal-button">ENTER NOW</button>
+    
+    <!-- Portal Card (optional - can be any element) -->
+    <div id="portalCard" class="portal-card">
+        <!-- Your content here -->
+        <img src="your-logo.png" alt="Logo" class="title-image">
+    </div>
+
+    <!-- Tunnel Canvas (hidden initially) -->
+    <canvas id="tunnelCanvas" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999;"></canvas>
+
+    <script>
+        // Animation JavaScript - Copy from the script section below
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Portal Card Styles */
+.portal-card {
+    position: absolute;
+    width: 380px;
+    height: 450px;
+    background: rgba(10, 12, 18, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 80, 17, 0.8);
+    box-shadow: 0 0 30px rgba(255, 80, 17, 0.5),
+                0 0 50px rgba(255, 80, 17, 0.3),
+                inset 0 0 20px rgba(255, 80, 17, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.1, 1, 0.1, 1);
+    z-index: 10;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: scale(0.85);
+}
+
+.portal-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 19px;
+    padding: 1px;
+    background: linear-gradient(135deg, #ff5011, #ff5011);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+    box-shadow: 0 0 20px #ff5011;
+}
+
+.portal-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 80, 17, 0.15) 0%, rgba(255, 80, 17, 0.15) 100%);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Gooey Effect */
+.gooey-effect {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 0;
+    opacity: 0.9;
+    filter: blur(2px);
+}
+
+.gooey-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(12px);
+    animation: float-blob 5s infinite ease-in-out;
+    opacity: 0.9;
+    background: radial-gradient(circle, rgba(255, 80, 17, 0.7) 0%, rgba(255, 80, 17, 0) 70%);
+}
+
+.gooey-blob:nth-child(1) {
+    width: 250px;
+    height: 250px;
+    left: -50px;
+    top: 100px;
+    animation-duration: 2.67s;
+}
+
+.gooey-blob:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    right: -30px;
+    top: 50px;
+    animation-duration: 2.67s;
+    animation-delay: -1s;
+}
+
+.gooey-blob:nth-child(3) {
+    width: 180px;
+    height: 180px;
+    right: 50px;
+    bottom: 100px;
+    animation-duration: 3.33s;
+    animation-delay: -1.33s;
+}
+
+.gooey-blob:nth-child(4) {
+    width: 220px;
+    height: 220px;
+    left: 30px;
+    bottom: 30px;
+    animation-duration: 3.33s;
+    animation-delay: -1.33s;
+}
+
+@keyframes float-blob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    20% { transform: translate(30px, 20px) scale(1.05); }
+    40% { transform: translate(20px, 40px) scale(0.95); }
+    60% { transform: translate(-20px, 30px) scale(1.1); }
+    80% { transform: translate(-30px, -20px) scale(0.9); }
+}
+
+/* Button Styles */
+.portal-button {
+    padding: 16px 38px;
+    background: rgba(10, 12, 20, 0.3);
+    border: 2px solid #ff5011;
+    border-radius: 12px;
+    color: white;
+    font-family: "Unica One", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 80, 17, 0.5);
+    text-shadow: 0 0 5px rgba(255, 80, 17, 0.5);
+}
+
+.portal-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 80, 17, 0.7);
+    text-shadow: 0 0 10px rgba(255, 80, 17, 0.8);
+    border-color: #ff8a5c;
+}
+
+/* Animation States */
+.portal-card.fadeOut {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1.5);
+    }
+}
+
+/* Overlay Elements */
+.dark-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0a0a0a;
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
+}
+
+.logo-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    width: 600px;
+    height: 600px;
+    background-image: url('your-logo.png'); /* Replace with your logo */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    z-index: 1001;
+    pointer-events: none;
+    transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 1.5s ease-out;
+}
+
+.logo-overlay.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.logo-overlay.fade-out {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Animation Configuration
+const animationConfig = {
+    soundUrl: 'https://cdn.shopify.com/s/files/1/0242/0175/6777/files/mixkit-futuristic-cinematic-noise-whip-1518.wav?v=1748880406',
+    destinationUrl: 'https://your-destination-url.com', // Change this
+    primaryColor: 0xff5011, // Orange color
+    tunnelDuration: 2.5, // seconds
+    redirectDelay: 4500 // ms total from click to redirect
+};
+
+// Audio setup
+const cinematicWhip = new Audio(animationConfig.soundUrl);
+cinematicWhip.preload = 'auto';
+cinematicWhip.load();
+
+// Three.js variables
+let animationId = null;
+let renderer, scene, camera, tube, stars;
+
+// Audio fade helper
+function fadeAudio(audioElement, targetVolume, duration) {
+    const initialVolume = audioElement.volume;
+    const delta = targetVolume - initialVolume;
+    const startTime = Date.now();
+    
+    function updateVolume() {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        audioElement.volume = initialVolume + delta * progress;
+        
+        if (progress < 1) {
+            requestAnimationFrame(updateVolume);
+        }
+    }
+    
+    updateVolume();
+}
+
+// Main animation trigger function
+function startPortalAnimation(triggerElement, cardElement, logoImageUrl) {
+    // Play sound
+    cinematicWhip.currentTime = 0;
+    cinematicWhip.volume = 1.0;
+    cinematicWhip.play();
+    
+    // Hide trigger element/card
+    if (cardElement) {
+        cardElement.classList.add("fadeOut");
+        setTimeout(() => {
+            cardElement.style.display = "none";
+        }, 500);
+    }
+    
+    // Show tunnel canvas
+    const canvasTunnel = document.getElementById("tunnelCanvas");
+    canvasTunnel.style.display = "block";
+    
+    // Initialize Three.js tunnel
+    initTunnel(animationConfig.primaryColor);
+    
+    // Create overlay elements
+    const darkOverlay = document.createElement("div");
+    darkOverlay.className = "dark-overlay";
+    document.body.appendChild(darkOverlay);
+    
+    const logoOverlay = document.createElement("div");
+    logoOverlay.className = "logo-overlay";
+    if (logoImageUrl) {
+        logoOverlay.style.backgroundImage = `url('${logoImageUrl}')`;
+    }
+    document.body.appendChild(logoOverlay);
+    
+    // Animation timeline
+    setTimeout(() => {
+        darkOverlay.style.opacity = "0.1";
+        
+        const darkFadeInterval = setInterval(() => {
+            const currentOpacity = parseFloat(darkOverlay.style.opacity || "0");
+            if (currentOpacity < 1) {
+                darkOverlay.style.opacity = (currentOpacity + 0.05).toString();
+            } else {
+                clearInterval(darkFadeInterval);
+            }
+        }, 50);
+        
+        // Show logo at 1.5s
+        setTimeout(() => {
+            logoOverlay.classList.add("visible");
+        }, 500);
+        
+        // Hide tunnel at 3.0s
+        setTimeout(() => {
+            cleanupTunnel();
+            darkOverlay.style.backgroundColor = "#0a0a0a";
+        }, 2000);
+        
+        // Fade out sound at 3.5s
+        setTimeout(() => {
+            fadeAudio(cinematicWhip, 0, 500);
+        }, 2500);
+        
+        // Fade out logo at 4.0s
+        setTimeout(() => {
+            logoOverlay.classList.add("fade-out");
+        }, 3000);
+        
+        // Redirect at 4.5s
+        setTimeout(() => {
+            window.location.href = animationConfig.destinationUrl;
+        }, 3500);
+    }, 1000);
+}
+
+// Three.js Tunnel Initialization
+function initTunnel(primaryColor) {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    
+    // Renderer with transparent background
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("tunnelCanvas"),
+        antialias: true,
+        alpha: true
+    });
+    renderer.setSize(w, h);
+    renderer.setClearColor(0x000000, 0);
+    
+    // Scene
+    scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.005);
+    
+    // Camera
+    camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
+    
+    // Create path
+    const path = createCircularPath();
+    
+    // Tube geometry
+    const tubeGeometry = new THREE.TubeGeometry(
+        path,
+        200,
+        3,
+        12,
+        false
+    );
+    
+    // Tube material
+    const material = new THREE.MeshBasicMaterial({
+        side: THREE.BackSide,
+        wireframe: true,
+        color: primaryColor,
+        transparent: true,
+        opacity: 0.8
+    });
+    
+    // Tube mesh
+    tube = new THREE.Mesh(tubeGeometry, material);
+    scene.add(tube);
+    
+    // Stars
+    const starsGeometry = new THREE.BufferGeometry();
+    const starsMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 1,
+        transparent: true
+    });
+    
+    const starsPositions = new Float32Array(2000 * 3);
+    for (let i = 0; i < 2000; i++) {
+        starsPositions[i * 3] = (Math.random() - 0.5) * 2000;
+        starsPositions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
+        starsPositions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+    }
+    
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(starsPositions, 3));
+    stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+    
+    // Animation
+    let pct = 0;
+    const duration = 2.5;
+    const startTime = Date.now();
+    
+    function animate() {
+        const elapsed = (Date.now() - startTime) / 1000;
+        pct = Math.min(elapsed / duration, 1);
+        
+        const lookAheadPct = Math.min(pct + 0.01, 1);
+        const pt1 = path.getPointAt(pct);
+        const pt2 = path.getPointAt(lookAheadPct);
+        
+        camera.position.set(pt1.x, pt1.y, pt1.z);
+        camera.lookAt(pt2);
+        
+        renderer.render(scene, camera);
+        
+        if (pct < 1) {
+            animationId = requestAnimationFrame(animate);
+        }
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        const w = window.innerWidth;
+        const h = window.innerHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+    });
+}
+
+// Create circular path
+function createCircularPath() {
+    const curve = new THREE.CatmullRomCurve3([
+        new THREE.Vector3(0, 0, 0),
+        new THREE.Vector3(20, 10, -50),
+        new THREE.Vector3(40, -10, -100),
+        new THREE.Vector3(60, 15, -150),
+        new THREE.Vector3(50, -5, -200),
+        new THREE.Vector3(0, 0, -250),
+        new THREE.Vector3(-100, 0, -200),
+        new THREE.Vector3(-150, 0, -100),
+        new THREE.Vector3(-100, 0, 0),
+        new THREE.Vector3(-50, 10, 100),
+        new THREE.Vector3(-20, -10, 150),
+        new THREE.Vector3(0, 0, 200)
+    ]);
+    
+    curve.tension = 0.1;
+    return curve;
+}
+
+// Cleanup Three.js
+function cleanupTunnel() {
+    if (animationId) {
+        cancelAnimationFrame(animationId);
+    }
+    if (renderer) {
+        renderer.dispose();
+    }
+    if (scene) {
+        while(scene.children.length > 0){ 
+            scene.remove(scene.children[0]); 
+        }
+    }
+    const canvasTunnel = document.getElementById("tunnelCanvas");
+    if (canvasTunnel) {
+        canvasTunnel.style.display = "none";
+    }
+}
+
+// Initialize animation on button click
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('portalButton');
+    const card = document.getElementById('portalCard');
+    const logoUrl = 'your-logo.png'; // Replace with your logo URL
+    
+    button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        startPortalAnimation(button, card, logoUrl);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
