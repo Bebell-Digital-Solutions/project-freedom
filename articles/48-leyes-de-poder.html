@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The 48 Laws of Power | Bilingual Table</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .app-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 3rem;
+    }
+
+    /* hero section with card look */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef2ff;
+    }
+
+    .hero-text {
+      flex: 1.2;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* language button inside hero, top left */
+    .hero-lang-btn {
+      align-self: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 60px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+      color: #1e293b;
+    }
+
+    .toggle-btn:hover {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+      transform: scale(0.97);
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #1e293b, #2d3a4e);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: #334155;
+      max-width: 90%;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      margin-top: 0.8rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .hero-image {
+      flex: 0.8;
+      min-width: 230px;
+      aspect-ratio: 4 / 3;
+      background: #f1f5f9;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem;
+      border: 1px solid #e2e8f0;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    /* table section */
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 1.25rem;
+      background: #ffffff;
+      border: 1px solid #e9edf2;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .laws-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      min-width: 780px;
+    }
+
+    .laws-table th {
+      background: #f1f5f9;
+      padding: 1rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: #0c4a6e;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 0.85rem;
+      letter-spacing: 0.3px;
+    }
+
+    .laws-table td {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #ecf3fa;
+      vertical-align: top;
+      color: #1e293b;
+    }
+
+    .laws-table tr:hover td {
+      background-color: #fafdff;
+    }
+
+    .law-number {
+      font-weight: 700;
+      color: #2563eb;
+      width: 60px;
+    }
+
+    .law-name {
+      font-weight: 600;
+      width: 170px;
+    }
+
+    .definition-cell, .example-cell {
+      line-height: 1.45;
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #5b6e8c;
+      border-top: 1px solid #e2edf7;
+      padding-top: 2rem;
+    }
+
+    @media (max-width: 760px) {
+      .app-container {
+        padding: 1rem 1.2rem 2rem;
+      }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+      .hero-text p {
+        max-width: 100%;
+      }
+      .hero-lang-btn {
+        align-self: center;
+        margin-bottom: 1rem;
+      }
+      .hero-image {
+        width: 80%;
+        margin-top: 0.5rem;
+      }
+      .section-title {
+        font-size: 1.4rem;
+      }
+      .laws-table th, .laws-table td {
+        padding: 0.8rem 0.6rem;
+      }
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+  </style>
+</head>
+<body>
+<div class="app-container">
+  <!-- Hero section with integrated language button (left side, top of title) -->
+  <div class="hero">
+    <div class="hero-text">
+      <!-- Language button now placed inside hero card, top-left above title -->
+      <div class="hero-lang-btn">
+        <button class="toggle-btn" id="langToggleBtn" aria-label="Switch language">🇬🇧 ENGLISH</button>
+      </div>
+      <h1 id="heroTitle">The 48 Laws of Power</h1>
+      <p id="heroDesc">Master the art of indirection, strategy, and influence. Based on Robert Greene’s timeless classic, this table presents each law with a clear definition and a historical example — a guide to understanding power dynamics in any arena.</p>
+      <p id="heroSub" class="hero-sub">⬇️ Explore all 48 laws below ⬇️</p>
+    </div>
+    <div class="hero-image">
+      <!-- book cover image from provided URL (4:3 container, object-fit contain) -->
+      <img src="https://bucket.mlcdn.com/a/3336/3336910/images/789b223d93f2d5bb6ed0e15ef31ef5ee393d774f.png" alt="The 48 Laws of Power book cover" loading="eager">
+    </div>
+  </div>
+
+  <!-- Table section -->
+  <div class="section-title" id="tableTitle">⚡ THE 48 STRATEGIES</div>
+  <div class="table-wrapper">
+    <table class="laws-table" id="powerTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th id="thName">Law Name</th>
+          <th id="thDef">Definition</th>
+          <th id="thEx">Classic Example</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <!-- populated by js -->
+      </tbody>
+    </table>
+  </div>
+  <footer>
+    <span id="footerText">⚡ Power is a game — master it with strategic awareness.</span>
+  </footer>
+</div>
+
+
+
+  
+
+<script>
+  // --------------------------------------------------------------
+  // 48 LAWS DATA (ENGLISH + SPANISH) - based on the original text
+  // --------------------------------------------------------------
+  const lawsData = [
+    { num:1, name_en:"Never Outshine the Master", def_en:"Always make those above you feel comfortably superior. Do not display talents that might inspire fear or insecurity.", example_en:"Nicolas Fouquet threw a lavish party for Louis XIV, outshining the king. Louis arrested him and imprisoned him for life." },
+    { num:2, name_en:"Never Put Too Much Trust in Friends, Learn How to Use Enemies", def_en:"Friends betray quickly out of envy. Hire former enemies — they are more loyal because they have more to prove.", example_en:"Emperor Sung of China bribed his generals to retire, then turned former enemies into loyal vassals by pardoning them." },
+    { num:3, name_en:"Conceal Your Intentions", def_en:"Keep people off-balance by hiding your real purpose. Guide them down a false path until it's too late.", example_en:"Bismarck defended peace and praised Austria to win favor, then waged war against Austria to unify Germany." },
+    { num:4, name_en:"Always Say Less Than Necessary", def_en:"Powerful people impress by saying less. The more you speak, the more common you appear and the more you risk saying something foolish.", example_en:"Louis XIV maintained an inscrutable expression; his short responses gave his words an oracular power." },
+    { num:5, name_en:"So Much Depends on Reputation — Guard It with Your Life", def_en:"Reputation is the cornerstone of power. Build an unassailable reputation and destroy enemies by undermining theirs.", example_en:"P.T. Barnum ruined his rival's museum by planting rumors and mockery, while elevating his own fame as a showman." },
+    { num:6, name_en:"Court Attention at All Cost", def_en:"Stand out conspicuously. Be more mysterious, colorful, or scandalous than the masses — anything to avoid being ignored.", example_en:"Barnum created absurd spectacles (Fiji Mermaid, bricklaying man) that drew huge crowds, knowing any attention brings power." },
+    { num:7, name_en:"Get Others to Do the Work for You, but Always Take the Credit", def_en:"Use others' knowledge and labor to further your cause. Your helpers will be forgotten, and you will be remembered.", example_en:"Thomas Edison hired brilliant minds like Nikola Tesla, then took credit for their innovations, becoming a legend." },
+    { num:8, name_en:"Make Other People Come to You — Use Bait if Necessary", def_en:"Force opponents to abandon their plans and come to you. Lure them with fabulous gains, then attack.", example_en:"Talleyrand baited Napoleon into escaping Elba; Napoleon marched to Paris and was ultimately crushed at Waterloo." },
+    { num:9, name_en:"Win Through Your Actions, Never Through Argument", def_en:"Argument creates resentment. Demonstrate your point through action — it is more powerful and leaves no room for offense.", example_en:"Michelangelo let a patron criticize the nose of his statue; he pretended to fix it with marble dust, satisfying the patron without altering his work." },
+    { num:10, name_en:"Infection: Avoid the Unhappy and Unlucky", def_en:"Misfortune is contagious. Those who bring chaos upon themselves will drag you down. Associate with the cheerful and fortunate.", example_en:"Lola Montez brought ruin to lovers and kings — her misfortunes infected everyone close to her, causing duels, abdications, and early deaths." },
+    { num:11, name_en:"Learn to Keep People Dependent on You", def_en:"To maintain freedom, make others need you. Never teach them enough to do without you.", example_en:"Bismarck became indispensable to King William; whenever he threatened to resign, the king conceded to his demands." },
+    { num:12, name_en:"Use Selective Honesty and Generosity to Disarm Your Victim", def_en:"An act of sincerity lowers suspicion. Once their guard is down, you can manipulate them freely.", example_en:"Count Victor Lustig returned Al Capone's money after a failed con, impressing Capone with his 'honesty' — and received a $5,000 gift." },
+    { num:13, name_en:"When Asking for Help, Appeal to People's Self-Interest, Never to Their Mercy or Gratitude", def_en:"Do not remind allies of past favors. Show them how your request benefits them personally.", example_en:"Corcyra convinced Athens to ally against Corinth by offering a powerful navy — self-interest outweighed past obligations." },
+    { num:14, name_en:"Pose as a Friend, Work as a Spy", def_en:"Gather intelligence by probing in casual settings. Play the confidant to uncover weaknesses and intentions.", example_en:"Joseph Duveen secretly paid Mellon's servants for information on his tastes, then engineered a 'chance' meeting at a museum to close the sale." },
+    { num:15, name_en:"Crush Your Enemy Totally", def_en:"A wounded enemy will recover and seek revenge. Leave no ember alive. Total annihilation is the only security.", example_en:"Liu Pang annihilated his rival Hsiang Yu after a partial victory — he learned that half-measures only create future vengeance." },
+    { num:16, name_en:"Use Absence to Increase Respect and Honor", def_en:"Too much familiarity breeds contempt. Withdraw to create scarcity and make people value your presence.", example_en:"Deioces refused to judge cases, causing chaos. The Medes begged him to return as their absolute king." },
+    { num:17, name_en:"Keep Others in Suspended Terror: Cultivate an Air of Unpredictability", def_en:"Deliberate unpredictability unsettles opponents. Never let them anticipate your moves.", example_en:"Bobby Fischer played erratic, blundering moves against Spassky, forfeiting a game — Spassky became confused and lost the championship." },
+    { num:18, name_en:"Do Not Build Fortresses to Protect Yourself — Isolation Is Dangerous", def_en:"Hiding cuts you off from information and allies. Mingle and circulate; the crowd protects you.", example_en:"China's first emperor hid in a secret palace, lost control, and died alone — his isolation made him powerless." },
+    { num:19, name_en:"Know Who You're Dealing With — Do Not Offend the Wrong Person", def_en:"Different people react differently. Some will seek lifelong revenge for minor slights. Choose victims carefully.", example_en:"Genghis Khan offered peace; the Shah beheaded his ambassadors. Khan annihilated the entire empire in retribution." },
+    { num:20, name_en:"Do Not Commit to Anyone", def_en:"Maintain independence. Stay courted by all sides while committing to none — you become the master they pursue.", example_en:"Queen Elizabeth I never married, using suitors to forge alliances for decades, keeping her power absolute." },
+    { num:21, name_en:"Play a Sucker to Catch a Sucker — Seem Dumber Than Your Mark", def_en:"Make your victims feel smarter than you. They will never suspect your ulterior motives.", example_en:"Prospectors Arnold and Slack played naive rubes while conning financiers with a salted diamond mine. No one believed hayseeds could cheat them." },
+    { num:22, name_en:"Use the Surrender Tactic: Transform Weakness Into Power", def_en:"When weaker, surrender. It buys time to recover and irritates the conqueror, setting up future revenge.", example_en:"Brecht cooperated with HUAC politely and vaguely, avoiding blacklisting, while defiant witnesses were ruined." },
+    { num:23, name_en:"Concentrate Your Forces", def_en:"Dig deep in one rich mine rather than flitting between many. Intensity defeats extensivity.", example_en:"The Rothschilds concentrated their banking power within the family, marrying cousins and speaking in code — they dominated European finance." },
+    { num:24, name_en:"Play the Perfect Courtier", def_en:"Master indirection, flattery, and graceful assertion of power. Courtly skills elevate you above rivals.", example_en:"Architect Mansart let Louis XIV spot 'flaws' in his designs, then praised the king's genius — a maneuver that won him royal commissions." },
+    { num:25, name_en:"Re-Create Yourself", def_en:"Do not accept society's roles. Forge a new identity that commands attention. Be the master of your image.", example_en:"George Sand wore men's clothes, smoked cigars, and adopted a male persona, becoming a celebrated and free writer in patriarchal France." },
+    { num:26, name_en:"Keep Your Hands Clean", def_en:"Use scapegoats and cat's-paws for dirty work. Appear a paragon of civility while others take the blame.", example_en:"Cleopatra seduced Caesar and Antony to eliminate her siblings, keeping her own hands clean of royal blood." },
+    { num:27, name_en:"Play on People's Need to Believe to Create a Cultlike Following", def_en:"Offer a cause or new faith. Keep promises vague but full of enthusiasm. Use rituals and sacrifice to bind followers.", example_en:"Francesco Borri claimed divine visions, created hierarchical degrees of disciples, and lived in splendor — thousands gave him wealth." },
+    { num:28, name_en:"Enter Action with Boldness", def_en:"Hesitation breeds failure. Audacity hides mistakes and intimidates. Boldness corrects its own errors.", example_en:"Lustig 'sold' the Eiffel Tower — when the buyer hesitated, he asked for a bribe, confirming the scam and pocketing a fortune." },
+    { num:29, name_en:"Plan All the Way to the End", def_en:"Envision the final outcome, including consequences. Planning to the end prevents being overwhelmed by fortune.", example_en:"Bismarck planned German unification step by step — each war had a precise goal, and he stopped exactly when each objective was reached." },
+    { num:30, name_en:"Make Your Accomplishments Seem Effortless", def_en:"Conceal the toil and tricks. Act with natural grace; people will admire you more and never see your methods.", example_en:"Houdini practiced thousands of hours but made escapes look easy, leading audiences to believe he had supernatural powers." },
+    { num:31, name_en:"Control the Options: Get Others to Play with the Cards You Deal", def_en:"Offer choices that all lead to your desired outcome. People feel in control while you direct them.", example_en:"Ivan the Terrible 'abdicated' — citizens faced anarchy or begging him back with absolute power. They chose to give him dictatorship." },
+    { num:32, name_en:"Play to People's Fantasies", def_en:"Avoid ugly truth. Romance and fantasy attract followers. Be the oasis in a desert of harsh reality.", example_en:"Bragadino promised bankrupt Venice alchemical gold — a magical solution they desperately wanted to believe." },
+    { num:33, name_en:"Discover Each Man's Thumbscrew", def_en:"Find the weakness: insecurity, secret pleasure, uncontrollable emotion. Once found, you control them.", example_en:"Richelieu discovered the queen mother’s need for validation — he flattered her relentlessly, gaining her protection and rising to power." },
+    { num:34, name_en:"Be Royal in Your Own Fashion: Act Like a King to Be Treated Like One", def_en:"Carry yourself with confidence and dignity. Set a high price on your presence, and others will pay it.", example_en:"Columbus, a weaver's son, demanded titles of 'Admiral of the Ocean' before sailing — his regal bearing convinced Queen Isabella to invest." },
+    { num:35, name_en:"Master the Art of Timing", def_en:"Never seem in a hurry. Detect the right moment to strike. Patience allows you to control destiny.", example_en:"Fouché survived political purges by waiting — he shifted allegiances only when the timing was perfect, never rushing." },
+    { num:36, name_en:"Disdain Things You Cannot Have: Ignoring Them Is the Best Revenge", def_en:"Acknowledging a petty problem makes it real. Ignore what you cannot possess or defeat — contempt starves the enemy.", example_en:"Henry VIII wanted a papal divorce; when the Pope refused, Henry ignored his authority, founded a new church, and made the Pope irrelevant." },
+    { num:37, name_en:"Create Compelling Spectacles", def_en:"Striking visuals and symbols create an aura of power. Spectacles dazzle and distract from your real actions.", example_en:"Dr. Weisleder, the 'Moon Doctor', healed with dramatic moonlit rituals — the spectacle made patients believe in his power." },
+    { num:38, name_en:"Think as You Like but Behave Like Others", def_en:"Flaunting unconventional ideas invites punishment. Blend in, share originality only with tolerant friends.", example_en:"Campanella, a heretic, wrote a book that outwardly defended the Church but subtly mocked it — he survived the Inquisition." },
+    { num:39, name_en:"Stir Up Waters to Catch Fish", def_en:"Make your enemies emotional while you stay calm. Provoke them into rash actions, then exploit their mistakes.", example_en:"Haile Selassie goaded a rival warlord by ordering him to fight a meaningless battle — the warlord attacked prematurely and was crushed." },
+    { num:40, name_en:"Despise the Free Lunch", def_en:"Free offers often carry hidden obligations or tricks. Pay your way to avoid gratitude and deceit.", example_en:"Aretino didn't beg for patronage — he gave gifts to the wealthy Marquis, creating a reciprocal obligation that made patrons shower him with money." },
+    { num:41, name_en:"Avoid Stepping Into a Great Man's Shoes", def_en:"Successors are compared unfavorably. Change direction, carve your own identity to outshine the predecessor.", example_en:"Alexander the Great belittled his father's achievements, adopted a bolder path, and surpassed Philip's glory." },
+    { num:42, name_en:"Strike the Shepherd and the Sheep Will Scatter", def_en:"Trouble often starts with one individual. Isolate or banish that stirrer, and the group loses its will to resist.", example_en:"Pope Boniface VIII lured Dante away from Florence; leaderless, the city fell without a fight." },
+    { num:43, name_en:"Work on the Hearts and Minds of Others", def_en:"Coercion breeds resistance. Seduce people by appealing to their emotions and psychology — they become loyal pawns.", example_en:"General Chuko Liang captured a rebel king seven times and released him each time, winning his heart — the king finally surrendered as a devoted ally." },
+    { num:44, name_en:"Disarm and Infuriate with the Mirror Effect", def_en:"Mirror your enemy’s actions and psychology. It mocks them, confuses their strategy, and can seduce.", example_en:"Alcibiades, a flamboyant Athenian, mirrored Spartan austerity when he fled to Sparta. They were disarmed and gave him power." },
+    { num:45, name_en:"Preach the Need for Change, but Never Reform Too Much at Once", def_en:"Radical change provokes revolt. Respect old ways and make reforms feel like gentle improvements.", example_en:"Mao Tse-tung framed communist revolution using traditional folk heroes and ancient stories, making radical change seem familiar." },
+    { num:46, name_en:"Never Appear Too Perfect", def_en:"Envy creates silent enemies. Display harmless defects and vices to appear more human and approachable.", example_en:"Cosimo de' Medici dressed modestly and rode a mule while ruling Florence in secret — his humble facade deflected envy." },
+    { num:47, name_en:"Do Not Go Past the Mark You Aimed For; In Victory, Learn When to Stop", def_en:"Victory breeds arrogance. Once you reach your goal, stop. Going further creates new enemies and ruin.", example_en:"Madame de Pompadour lost the king’s bed but remained his trusted advisor for 20 years — she knew when to change her role." },
+    { num:48, name_en:"Assume Formlessness", def_en:"Avoid rigid plans or fixed shapes. Be fluid and adaptable, like water. Formlessness makes you impossible to attack.", example_en:"Mao's guerrilla forces had no fixed position — they attacked and vanished, confusing the larger Nationalist army and winning." }
+  ];
+
+  // Spanish translations (concise and faithful)
+  const spanishData = lawsData.map(law => ({
+    num: law.num,
+    name_es: getSpanishName(law.num),
+    def_es: getSpanishDef(law.num),
+    example_es: getSpanishExample(law.num)
+  }));
+
+  function getSpanishName(num) {
+    const names = {
+      1:"Nunca opaques a tu maestro",2:"No confíes en amigos, usa enemigos",3:"Oculta tus intenciones",4:"Di menos de lo necesario",5:"La reputación lo es todo",6:"Atrae la atención cueste lo que cueste",7:"Que otros trabajen, toma el crédito",8:"Haz que vengan a ti",9:"Gana con acciones, no discutas",10:"Evita a los desdichados",11:"Haz que dependan de ti",12:"Honestidad selectiva para desarmar",13:"Apela al interés propio",14:"Finje amistad, actúa como espía",15:"Aniquila a tu enemigo",16:"Usa la ausencia para aumentar respeto",17:"Cultiva imprevisibilidad",18:"El aislamiento es peligroso",19:"No ofendas a la persona equivocada",20:"No te comprometas con nadie",21:"Parece más tonto que tu víctima",22:"Ríndete tácticamente",23:"Concentra tus fuerzas",24:"El cortesano perfecto",25:"Reinventate",26:"Mantén tus manos limpias",27:"Crea un culto de seguidores",28:"Actúa con audacia",29:"Planea hasta el final",30:"Parece que todo te sale sin esfuerzo",31:"Controla las opciones",32:"Apela a las fantasías",33:"Descubre la debilidad de cada cual",34:"Compórtate como un rey",35:"Domina el arte del timing",36:"Desdeña lo que no puedes tener",37:"Crea espectáculos fascinantes",38:"Piensa como quieras, actúa como todos",39:"Agita las aguas para pescar",40:"Desprecia lo gratuito",41:"No sigas los pasos de un grande",42:"Golpea al pastor, las ovejas se dispersan",43:"Gánate los corazones",44:"El efecto espejo",45:"Predica cambios, pero reforma con mesura",46:"Nunca aparentes ser perfecto",47:"Detente cuando alcances la meta",48:"Sé informe como el agua"
+    };
+    return names[num] || "";
+  }
+  function getSpanishDef(num) {
+    const defs = {
+      1:"Haz que los superiores se sientan superiores; no los amenaces con tu talento.",2:"Los amigos envidian; los enemigos se vuelven más leales.",3:"Despista, que no sepan tu propósito hasta que sea tarde.",4:"Habla menos; el silencio te vuelve misterioso.",5:"Cimenta una reputación sólida y destruye la de rivales.",6:"Destaca a toda costa; la atención es poder.",7:"Aprovecha el trabajo ajeno y llévate el mérito.",8:"Haz que el oponente venga a ti, agotado y en tu terreno.",9:"Nunca discutas; demuestra con actos.",10:"La desgracia es contagiosa: aléjate de los infelices.",11:"Haz que otros necesiten de ti para mantener libertad.",12:"Un gesto honesto baja defensas y permite manipular.",13:"No pidas por gratitud; muestra beneficio para el otro.",14:"Recolecta información simulando amistad.",15:"Destruye al enemigo por completo; no dejes rescoldos.",16:"Retírate temporalmente para que te valoren más.",17:"Sé impredecible; la incertidumbre aterra.",18:"Aislarte te deja ciego y vulnerable.",19:"Elige bien a tus víctimas; algunos buscan venganza eterna.",20:"No te alíes; mantente independiente y haz que te cortejen.",21:"Haz que se sientan más listos que tú para que bajen la guardia.",22:"Ríndete para ganar tiempo y desestabilizar.",23:"Más vale profundizar en una veta que dispersarte.",24:"Insinúa, halaga y muévete con gracia.",25:"Forja tu propia imagen; no aceptes la impuesta.",26:"Usa chivos expiatorios; que tu imagen quede limpia.",27:"Crea una causa y rituales; la gente necesita creer.",28:"La audacia disimula errores y siembra respeto.",29:"Prevén cada obstáculo hasta el final.",30:"Oculta el esfuerzo; actúa con soltura.",31:"Ofrece opciones que todas te beneficien.",32:"Apela a los sueños, no a la realidad amarga.",33:"Haz palanca en sus inseguridades y deseos ocultos.",34:"Compórtate con grandeza para que te traten como a un rey.",35:"Paciencia y timing lo dominan todo.",36:"Ignora lo que no puedes tener: el desdén es venganza.",37:"Usa símbolos visuales y espectáculo para deslumbrar.",38:"Mimetízate con la mayoría, guarda tu originalidad.",39:"Provoca a tu enemigo para que pierda la calma.",40:"Lo gratis casi siempre es una trampa. Paga tu camino.",41:"Construye tu propio camino; no imites a gigantes.",42:"Elimina al líder y el grupo se desmorona.",43:"Seduce en lugar de obligar; gana corazones.",44:"Refleja a tu enemigo para confundirlo y enfurecerlo.",45:"Cambia gradualmente; respeta las formas antiguas.",46:"Muestra algún defecto para evitar la envidia.",47:"Cuando llegues a la meta, párate. No avances más.",48:"Sé fluido, sin forma fija, para que no puedan atacarte."
+    };
+    return defs[num] || "";
+  }
+  function getSpanishExample(num) {
+    const exs = {
+      1:"Fouquet perdió la libertad por eclipsar a Luis XIV.",2:"El emperador Sung neutralizó a sus generales amigos.",3:"Bismarck fingió apoyar la paz y luego declaró la guerra.",4:"Luis XIV hablaba en oráculos breves.",5:"Barnum destruyó la reputación de su rival mientras elevaba la suya.",6:"Barnum atrajo multitudes con la sirena de Fiji.",7:"Edison explotó el talento de Tesla y se llevó el crédito.",8:"Talleyrand orquestó la huida de Napoleón que acabó en Waterloo.",9:"Miguel Ángel dejó que un mecenas creyera corregir el David.",10:"Lola Montez hundió a todos los que la rodearon.",11:"Bismarck se hizo indispensable para el rey Guillermo.",12:"Lustig fingió honestidad y Capone le dio más dinero.",13:"Corcira ofreció su flota a Atenas por conveniencia.",14:"Duveen espió a Mellon a través de sus sirvientes.",15:"Liu Pang aniquiló a Hsiang Yu sin piedad.",16:"Deioces se retiró y fue aclamado rey absoluto.",17:"Fischer desconcertó a Spassky con movimientos caóticos.",18:"El primer emperador chino murió solo y traicionado.",19:"Gengis Khan arrasó un imperio por una afrenta.",20:"Isabel I nunca se casó y gobernó con poder absoluto.",21:"Arnold y Slack estafaron a millonarios haciéndose los inocentes.",22:"Brecht cooperó con la comisión y salvó su carrera.",23:"Los Rothschild concentraron el poder en la familia.",24:"Mansart aduló a Luis XIV para obtener encargos.",25:"George Sand adoptó una identidad masculina para ser libre.",26:"Cleopatra usó a César y Antonio para eliminar rivales.",27:"Borri creó una secta con rangos y exigencias económicas.",28:"Lustig vendió la Torre Eiffel con una audacia insólita.",29:"Bismarck planeó cada guerra para unificar Alemania.",30:"Houdini entrenaba en secreto y parecía sobrenatural.",31:"Iván el Terrible simuló abdicar para conseguir poder absoluto.",32:"Bragadino prometió oro alquímico a Venecia en ruinas.",33:"Richelieu aduló a la reina madre para ascender.",34:"Colón exigió títulos de almirante antes de zarpar.",35:"Fouché sobrevivió a cada régimen esperando el momento justo.",36:"Enrique VIII fundó su propia iglesia ante la negativa papal.",37:"El doctor Luna curó con rituales lunares espectaculares.",38:"Campanella sobrevivió a la Inquisición escribiendo con doble sentido.",39:"Haile Selassie provocó a su rival hasta hacerle caer.",40:"Aretino dio regalos para crear obligación y recibir más.",41:"Alejandro despreció a su padre y forjó su propio imperio.",42:"El papa Bonifacio apartó a Dante y conquistó Florencia.",43:"Zhuge Liang capturó y liberó a un rey hasta ganar su lealtad.",44:"Alcibíades imitó la austeridad espartana para ganar poder.",45:"Mao usó héroes tradicionales para vender la revolución.",46:"Cosme de Médici vestía con humildad para evitar envidias.",47:"Madame Pompadour cambió su rol y se mantuvo 20 años en el poder.",48:"Mao desconcertó a los nacionalistas con tácticas de guerrilla sin forma."
+    };
+    return exs[num] || "";
+  }
+
+  let currentLang = 'es';
+  const tbody = document.getElementById('tableBody');
+  const heroTitle = document.getElementById('heroTitle');
+  const heroDesc = document.getElementById('heroDesc');
+  const heroSub = document.getElementById('heroSub');
+  const tableTitleSpan = document.getElementById('tableTitle');
+  const footerSpan = document.getElementById('footerText');
+  const thName = document.getElementById('thName');
+  const thDef = document.getElementById('thDef');
+  const thEx = document.getElementById('thEx');
+  const toggleBtn = document.getElementById('langToggleBtn');
+
+  function renderTable() {
+    tbody.innerHTML = '';
+    for (let i = 0; i < lawsData.length; i++) {
+      const lawEn = lawsData[i];
+      const lawEs = spanishData[i];
+      const law = currentLang === 'es' ? lawEn : lawEs;
+      const name = currentLang === 'en' ? lawEn.name_en : lawEs.name_es;
+      const definition = currentLang === 'en' ? lawEn.def_en : lawEs.def_es;
+      const example = currentLang === 'en' ? lawEn.example_en : lawEs.example_es;
+      const row = tbody.insertRow();
+      row.insertCell(0).innerHTML = `<span class="law-number">${law.num}</span>`;
+      row.insertCell(1).innerHTML = `<span class="law-name">${name}</span>`;
+      row.insertCell(2).innerHTML = `<span class="definition-cell">${definition}</span>`;
+      row.insertCell(3).innerHTML = `<span class="example-cell">${example}</span>`;
+    }
+  }
+
+  function updateTexts() {
+    if (currentLang === 'en') {
+      heroTitle.innerText = 'The 48 Laws of Power';
+      heroDesc.innerText = 'Master the art of indirection, strategy, and influence. Based on Robert Greene’s timeless classic, this table presents each law with a clear definition and a historical example — a guide to understanding power dynamics in any arena.';
+      heroSub.innerText = '⬇️ Explore all 48 laws below ⬇️';
+      tableTitleSpan.innerText = '⚡ THE 48 STRATEGIES';
+      footerSpan.innerText = '⚡ Power is a game — master it with strategic awareness.';
+      thName.innerText = 'Law Name';
+      thDef.innerText = 'Definition';
+      thEx.innerText = 'Classic Example';
+      toggleBtn.innerHTML = '🇪🇸 ESPAÑOL';
+    } else {
+      heroTitle.innerText = 'Las 48 Leyes del Poder';
+      heroDesc.innerText = 'Domina el arte de la indirección, la estrategia y la influencia. Basado en el clásico de Robert Greene, esta tabla presenta cada ley con una definición clara y un ejemplo histórico.';
+      heroSub.innerText = '⬇️ Explora las 48 leyes a continuación ⬇️';
+      tableTitleSpan.innerText = '⚡ LAS 48 LEYES';
+      footerSpan.innerText = '⚡ El poder es un juego — domínalo con conciencia estratégica.';
+      thName.innerText = 'Nombre de la Ley';
+      thDef.innerText = 'Definición';
+      thEx.innerText = 'Ejemplo Clásico';
+      toggleBtn.innerHTML = '🇬🇧 ENGLISH';
+    }
+    renderTable();
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'es' : 'en';
+    updateTexts();
+  });
+
+  updateTexts();
+</script>
+</body>
+</html>
