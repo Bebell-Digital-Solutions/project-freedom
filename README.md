@@ -1,1 +1,1 @@
-# project-freedom
+# Project Freedom
