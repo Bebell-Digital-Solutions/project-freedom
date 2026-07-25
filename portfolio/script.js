@@ -1,7 +1,4 @@
 
-
-
-
     <!-- ANIMATIONS -->
 
         // Back to top functionality
