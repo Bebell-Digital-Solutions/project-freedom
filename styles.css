@@ -783,6 +783,8 @@ button path {
     color: var(--title-color);
 }
 
+
+
 /* Responsive adjustments */
 @media screen and (max-width: 968px) {
     .hero-stats {
@@ -799,7 +801,16 @@ button path {
     }
 }
 
+
+
 @media screen and (max-width: 768px) {
+
+.hero-logo {
+    width: 50px;
+    height: 50px;
+}
+
+   
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.8rem;
@@ -840,12 +851,6 @@ button path {
 
 
 
-
-
-
-
-
-
 .stats-section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -855,18 +860,6 @@ button path {
     max-width: 980px;
        cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -925,14 +918,6 @@ button path {
 
 
 
-
-
-
-
-
-
-
-
 /*===========================================
    08. COUNTER STATS SECTION
 ===========================================*/
@@ -973,14 +958,6 @@ button path {
     letter-spacing: 1px;
     font-weight: var(--font-medium);
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -1126,15 +1103,6 @@ button path {
 .faq-open .faq-content {
     max-height: 500px;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1308,23 +1276,6 @@ button path {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*===========================================
    11. FOOTER
 ===========================================*/
@@ -1419,14 +1370,6 @@ button path {
 
 
 
-
-
-
-
-
-
-
-
 /*===========================================
    12. PAGE LOADER
 ===========================================*/
@@ -1480,11 +1423,6 @@ button path {
 
 
 
-
-
-
-
-
 /*===========================================
    13. BACK TO TOP BUTTON
 ===========================================*/
@@ -1496,11 +1434,6 @@ button path {
     cursor: pointer;
     z-index: 1000;
 }
-
-
-
-
-
 
 
 /*===========================================
@@ -1530,12 +1463,6 @@ button path {
     scrollbar-width: thin;
     scrollbar-color: var(--skin-color) var(--box-color);
 }
-
-
-
-
-
-
 
 
 
